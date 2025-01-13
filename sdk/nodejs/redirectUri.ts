@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg Redirect URI.
+ */
 export class RedirectUri extends pulumi.CustomResource {
     /**
      * Get an existing RedirectUri resource's state with the given name, ID, and optional extra

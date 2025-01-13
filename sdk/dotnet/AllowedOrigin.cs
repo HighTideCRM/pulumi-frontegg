@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Frontegg
 {
+    /// <summary>
+    /// Configures a Frontegg allowed origin.
+    /// </summary>
     [FronteggResourceType("frontegg:index/allowedOrigin:AllowedOrigin")]
     public partial class AllowedOrigin : global::Pulumi.CustomResource
     {
@@ -41,6 +44,7 @@ namespace Pulumi.Frontegg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/HighTideCRM/pulumi-frontegg",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

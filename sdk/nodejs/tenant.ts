@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg tenant.
+ */
 export class Tenant extends pulumi.CustomResource {
     /**
      * Get an existing Tenant resource's state with the given name, ID, and optional extra

@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg webhook.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@hightide-crm/pulumi-frontegg";
+ *
+ * const example = new frontegg.Webhook("example", {
+ *     enabled: true,
+ *     name: "Example webhook",
+ *     description: "An example of a webhook",
+ *     url: "https://example.com/webhook",
+ *     secret: "example-secret",
+ *     events: ["frontegg.user.authenticated"],
+ * });
+ * ```
+ */
 export class Webhook extends pulumi.CustomResource {
     /**
      * Get an existing Webhook resource's state with the given name, ID, and optional extra

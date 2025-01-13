@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg role.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@hightide-crm/pulumi-frontegg";
+ *
+ * const example = new frontegg.Role("example", {
+ *     name: "Example",
+ *     key: "example",
+ *     description: "An example of a role",
+ *     "default": true,
+ *     level: 0,
+ *     permissionIds: [
+ *         fronteggPermission.example.id,
+ *         readUsers.id,
+ *     ],
+ * });
+ * ```
+ */
 export class Role extends pulumi.CustomResource {
     /**
      * Get an existing Role resource's state with the given name, ID, and optional extra

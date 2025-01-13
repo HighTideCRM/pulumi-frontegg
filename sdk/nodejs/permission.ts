@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg permission.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@pulumi/frontegg";
+ *
+ * const readUsers = frontegg.getPermission({
+ *     key: "fe.secure.read.users",
+ * });
+ * ```
+ */
 export class Permission extends pulumi.CustomResource {
     /**
      * Get an existing Permission resource's state with the given name, ID, and optional extra

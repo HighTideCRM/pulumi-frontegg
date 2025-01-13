@@ -280,7 +280,23 @@ class Webhook(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Webhook resource with the given unique name, props, and options.
+        Configures a Frontegg webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        example = frontegg.Webhook("example",
+            enabled=True,
+            name="Example webhook",
+            description="An example of a webhook",
+            url="https://example.com/webhook",
+            secret="example-secret",
+            events=["frontegg.user.authenticated"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A human-readable description of the webhook.
@@ -297,7 +313,23 @@ class Webhook(pulumi.CustomResource):
                  args: WebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Webhook resource with the given unique name, props, and options.
+        Configures a Frontegg webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        example = frontegg.Webhook("example",
+            enabled=True,
+            name="Example webhook",
+            description="An example of a webhook",
+            url="https://example.com/webhook",
+            secret="example-secret",
+            events=["frontegg.user.authenticated"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

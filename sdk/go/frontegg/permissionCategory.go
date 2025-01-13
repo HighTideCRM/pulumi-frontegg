@@ -12,6 +12,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures a Frontegg permission category.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := frontegg.NewPermissionCategory(ctx, "example", &frontegg.PermissionCategoryArgs{
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("An example of a permission category"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type PermissionCategory struct {
 	pulumi.CustomResourceState
 

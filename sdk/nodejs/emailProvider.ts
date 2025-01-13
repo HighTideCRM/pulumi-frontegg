@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg Email provider.
+ */
 export class EmailProvider extends pulumi.CustomResource {
     /**
      * Get an existing EmailProvider resource's state with the given name, ID, and optional extra

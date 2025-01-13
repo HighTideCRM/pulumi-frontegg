@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg permission category.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@hightide-crm/pulumi-frontegg";
+ *
+ * const example = new frontegg.PermissionCategory("example", {
+ *     name: "Example",
+ *     description: "An example of a permission category",
+ * });
+ * ```
+ */
 export class PermissionCategory extends pulumi.CustomResource {
     /**
      * Get an existing PermissionCategory resource's state with the given name, ID, and optional extra

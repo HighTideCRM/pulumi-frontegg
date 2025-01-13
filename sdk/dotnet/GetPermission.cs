@@ -11,12 +11,81 @@ namespace Pulumi.Frontegg
 {
     public static class GetPermission
     {
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Frontegg = Pulumi.Frontegg;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var readUsers = Frontegg.GetPermission.Invoke(new()
+        ///     {
+        ///         Key = "fe.secure.read.users",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["permissionId"] = readUsers.Apply(getPermissionResult =&gt; getPermissionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetPermissionResult> InvokeAsync(GetPermissionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionResult>("frontegg:index/getPermission:getPermission", args ?? new GetPermissionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Frontegg = Pulumi.Frontegg;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var readUsers = Frontegg.GetPermission.Invoke(new()
+        ///     {
+        ///         Key = "fe.secure.read.users",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["permissionId"] = readUsers.Apply(getPermissionResult =&gt; getPermissionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("frontegg:index/getPermission:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Frontegg = Pulumi.Frontegg;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var readUsers = Frontegg.GetPermission.Invoke(new()
+        ///     {
+        ///         Key = "fe.secure.read.users",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["permissionId"] = readUsers.Apply(getPermissionResult =&gt; getPermissionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("frontegg:index/getPermission:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
     }
@@ -24,6 +93,9 @@ namespace Pulumi.Frontegg
 
     public sealed class GetPermissionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A human-readable identifier for the permission.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -35,6 +107,9 @@ namespace Pulumi.Frontegg
 
     public sealed class GetPermissionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A human-readable identifier for the permission.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -48,14 +123,29 @@ namespace Pulumi.Frontegg
     [OutputType]
     public sealed class GetPermissionResult
     {
+        /// <summary>
+        /// The identifier of the category to which this permission belongs.
+        /// </summary>
         public readonly string CategoryId;
+        /// <summary>
+        /// The timestamp at which the permission was created.
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// A human-readable description of the permission.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A human-readable identifier for the permission.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// A human-readable name for the permission.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

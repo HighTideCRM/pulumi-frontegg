@@ -49,16 +49,25 @@ class GetPermissionResult:
     @property
     @pulumi.getter(name="categoryId")
     def category_id(self) -> str:
+        """
+        The identifier of the category to which this permission belongs.
+        """
         return pulumi.get(self, "category_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        The timestamp at which the permission was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        A human-readable description of the permission.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -72,11 +81,17 @@ class GetPermissionResult:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A human-readable identifier for the permission.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        A human-readable name for the permission.
+        """
         return pulumi.get(self, "name")
 
 
@@ -97,7 +112,18 @@ class AwaitableGetPermissionResult(GetPermissionResult):
 def get_permission(key: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_frontegg as frontegg
+
+    read_users = frontegg.get_permission(key="fe.secure.read.users")
+    pulumi.export("permissionId", read_users.id)
+    ```
+
+
+    :param str key: A human-readable identifier for the permission.
     """
     __args__ = dict()
     __args__['key'] = key
@@ -114,7 +140,18 @@ def get_permission(key: Optional[str] = None,
 def get_permission_output(key: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_frontegg as frontegg
+
+    read_users = frontegg.get_permission(key="fe.secure.read.users")
+    pulumi.export("permissionId", read_users.id)
+    ```
+
+
+    :param str key: A human-readable identifier for the permission.
     """
     __args__ = dict()
     __args__['key'] = key

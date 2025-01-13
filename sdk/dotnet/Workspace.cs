@@ -9,6 +9,221 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Frontegg
 {
+    /// <summary>
+    /// Workspace configuration.
+    /// 
+    /// This is a singleton resource. You must only create one frontegg.Workspace resource
+    /// per Frontegg provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Frontegg = Pulumi.Frontegg;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Frontegg.Workspace("example", new()
+    ///     {
+    ///         Name = "Your Company",
+    ///         Country = "US",
+    ///         BackendStack = "Python",
+    ///         FrontendStack = "React",
+    ///         OpenSaasInstalled = false,
+    ///         FronteggDomain = "blah.frontegg.com",
+    ///         AllowedOrigins = new[]
+    ///         {
+    ///             "https://yourcompany.com",
+    ///         },
+    ///         AuthPolicy = new Frontegg.Inputs.WorkspaceAuthPolicyArgs
+    ///         {
+    ///             AllowUnverifiedUsers = true,
+    ///             AllowSignups = true,
+    ///             EnableApiTokens = true,
+    ///             EnableRoles = true,
+    ///             JwtAlgorithm = "RS256",
+    ///             MachineToMachineAuthStrategy = "ClientCredentials",
+    ///             JwtAccessTokenExpiration = 86400,
+    ///             JwtRefreshTokenExpiration = 2592000,
+    ///             SameSiteCookiePolicy = "strict",
+    ///             AuthStrategy = "EmailAndPassword",
+    ///             AllowTenantInvitations = true,
+    ///         },
+    ///         MfaPolicy = new Frontegg.Inputs.WorkspaceMfaPolicyArgs
+    ///         {
+    ///             AllowRememberDevice = true,
+    ///             DeviceExpiration = 604800,
+    ///             Enforce = "unless-saml",
+    ///         },
+    ///         MfaAuthenticationApp = new Frontegg.Inputs.WorkspaceMfaAuthenticationAppArgs
+    ///         {
+    ///             ServiceName = "Your Company",
+    ///         },
+    ///         LockoutPolicy = new Frontegg.Inputs.WorkspaceLockoutPolicyArgs
+    ///         {
+    ///             MaxAttempts = 10,
+    ///         },
+    ///         PasswordPolicy = new Frontegg.Inputs.WorkspacePasswordPolicyArgs
+    ///         {
+    ///             AllowPassphrases = false,
+    ///             MinLength = 10,
+    ///             MaxLength = 128,
+    ///             MinTests = 2,
+    ///             MinPhraseLength = 6,
+    ///             History = 2,
+    ///         },
+    ///         CaptchaPolicy = new Frontegg.Inputs.WorkspaceCaptchaPolicyArgs
+    ///         {
+    ///             SiteKey = "fake-site-key",
+    ///             SecretKey = "fake-secret-key",
+    ///             MinScore = 0.5,
+    ///         },
+    ///         HostedLogin = new Frontegg.Inputs.WorkspaceHostedLoginArgs
+    ///         {
+    ///             AllowedRedirectUrls = new[]
+    ///             {
+    ///                 "http://example.com/a",
+    ///                 "http://example.com/b",
+    ///             },
+    ///         },
+    ///         FacebookSocialLogin = new Frontegg.Inputs.WorkspaceFacebookSocialLoginArgs
+    ///         {
+    ///             ClientId = "fake-client-id",
+    ///             RedirectUrl = "fake-redirect-url",
+    ///             Secret = "fake-secret",
+    ///             Customised = false,
+    ///         },
+    ///         GithubSocialLogin = new Frontegg.Inputs.WorkspaceGithubSocialLoginArgs
+    ///         {
+    ///             ClientId = "fake-client-id",
+    ///             RedirectUrl = "fake-redirect-url",
+    ///             Secret = "fake-secret",
+    ///             Customised = false,
+    ///         },
+    ///         GoogleSocialLogin = new Frontegg.Inputs.WorkspaceGoogleSocialLoginArgs
+    ///         {
+    ///             ClientId = "fake-client-id",
+    ///             RedirectUrl = "fake-redirect-url",
+    ///             Secret = "fake-secret",
+    ///             Customised = false,
+    ///         },
+    ///         MicrosoftSocialLogin = new Frontegg.Inputs.WorkspaceMicrosoftSocialLoginArgs
+    ///         {
+    ///             ClientId = "fake-client-id",
+    ///             RedirectUrl = "fake-redirect-url",
+    ///             Secret = "fake-secret",
+    ///             Customised = false,
+    ///         },
+    ///         Saml = new Frontegg.Inputs.WorkspaceSamlArgs
+    ///         {
+    ///             AcsUrl = "https://mycompany.com/saml",
+    ///             SpEntityId = "my-company",
+    ///             RedirectUrl = "http://localhost:3000",
+    ///         },
+    ///         Oidc = new Frontegg.Inputs.WorkspaceOidcArgs
+    ///         {
+    ///             RedirectUrl = "http://localhost:3000",
+    ///         },
+    ///         ResetPasswordEmail = new Frontegg.Inputs.WorkspaceResetPasswordEmailArgs
+    ///         {
+    ///             FromAddress = "me@company.com",
+    ///             FromName = "Your Company",
+    ///             Subject = "Reset Your Company Password",
+    ///             HtmlTemplate = "&lt;strong&gt;Reset your password! {{redirectURL}}&lt;/strong&gt;",
+    ///             RedirectUrl = "https://yourcompany.com/reset",
+    ///         },
+    ///         AdminPortal = new Frontegg.Inputs.WorkspaceAdminPortalArgs
+    ///         {
+    ///             EnableAccountSettings = false,
+    ///             EnableApiTokens = false,
+    ///             EnableAuditLogs = false,
+    ///             EnablePersonalApiTokens = false,
+    ///             EnablePrivacy = false,
+    ///             EnableProfile = false,
+    ///             EnableRoles = false,
+    ///             EnableSecurity = false,
+    ///             EnableSso = false,
+    ///             EnableSubscriptions = false,
+    ///             EnableUsage = false,
+    ///             EnableUsers = false,
+    ///             EnableWebhooks = false,
+    ///             EnableGroups = false,
+    ///             EnableProvisioning = false,
+    ///             Palette = new Frontegg.Inputs.WorkspaceAdminPortalPaletteArgs
+    ///             {
+    ///                 Errors = new[]
+    ///                 {
+    ///                     new Frontegg.Inputs.WorkspaceAdminPortalPaletteErrorArgs
+    ///                     {
+    ///                         ContrastText = "#eeeef0",
+    ///                         Dark = "#ae402c",
+    ///                         Light = "#FFEEEA",
+    ///                         Main = "#E1583E",
+    ///                     },
+    ///                 },
+    ///                 Infos = new[]
+    ///                 {
+    ///                     new Frontegg.Inputs.WorkspaceAdminPortalPaletteInfoArgs
+    ///                     {
+    ///                         ContrastText = "#eeeef0",
+    ///                         Dark = "#3c6492",
+    ///                         Light = "#E2EEF9",
+    ///                         Main = "#5587C0",
+    ///                     },
+    ///                 },
+    ///                 Primaries = new[]
+    ///                 {
+    ///                     new Frontegg.Inputs.WorkspaceAdminPortalPalettePrimaryArgs
+    ///                     {
+    ///                         Active = "#278854",
+    ///                         ContrastText = "#eeeef0",
+    ///                         Dark = "#36A76A",
+    ///                         Hover = "#32A265",
+    ///                         Light = "#A2E1BF",
+    ///                         Main = "#43BB7A",
+    ///                     },
+    ///                 },
+    ///                 Secondaries = new[]
+    ///                 {
+    ///                     new Frontegg.Inputs.WorkspaceAdminPortalPaletteSecondaryArgs
+    ///                     {
+    ///                         Active = "#E6ECF4",
+    ///                         ContrastText = "#eeeef0",
+    ///                         Dark = "#E6ECF4",
+    ///                         Hover = "#F0F3F8",
+    ///                         Light = "#FBFBFC",
+    ///                         Main = "#FBFBFC",
+    ///                     },
+    ///                 },
+    ///                 Successes = new[]
+    ///                 {
+    ///                     new Frontegg.Inputs.WorkspaceAdminPortalPaletteSuccessArgs
+    ///                     {
+    ///                         ContrastText = "#eeeef0",
+    ///                         Dark = "#1d7c30",
+    ///                         Light = "#E1F5E2",
+    ///                         Main = "#2CA744",
+    ///                     },
+    ///                 },
+    ///                 Warnings = new[]
+    ///                 {
+    ///                     new Frontegg.Inputs.WorkspaceAdminPortalPaletteWarningArgs
+    ///                     {
+    ///                         ContrastText = "#eeeef0",
+    ///                         Dark = "#EAE1C2",
+    ///                         Light = "#F9F4E2",
+    ///                         Main = "#A79D7B",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [FronteggResourceType("frontegg:index/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
@@ -314,6 +529,7 @@ namespace Pulumi.Frontegg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/HighTideCRM/pulumi-frontegg",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

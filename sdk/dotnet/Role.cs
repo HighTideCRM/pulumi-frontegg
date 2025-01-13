@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Frontegg
 {
+    /// <summary>
+    /// Configures a Frontegg role.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Frontegg = Pulumi.Frontegg;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Frontegg.Role("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         Key = "example",
+    ///         Description = "An example of a role",
+    ///         Default = true,
+    ///         Level = 0,
+    ///         PermissionIds = new[]
+    ///         {
+    ///             fronteggPermission.Example.Id,
+    ///             readUsers.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [FronteggResourceType("frontegg:index/role:Role")]
     public partial class Role : global::Pulumi.CustomResource
     {
@@ -95,6 +125,7 @@ namespace Pulumi.Frontegg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/HighTideCRM/pulumi-frontegg",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

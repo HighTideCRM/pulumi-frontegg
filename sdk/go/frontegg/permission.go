@@ -12,6 +12,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures a Frontegg permission.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := frontegg.LookupPermission(ctx, &frontegg.LookupPermissionArgs{
+//				Key: "fe.secure.read.users",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Permission struct {
 	pulumi.CustomResourceState
 

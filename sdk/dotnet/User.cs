@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Frontegg
 {
+    /// <summary>
+    /// Configures a Frontegg user.
+    /// </summary>
     [FronteggResourceType("frontegg:index/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
@@ -77,6 +80,7 @@ namespace Pulumi.Frontegg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/HighTideCRM/pulumi-frontegg",
                 AdditionalSecretOutputs =
                 {
                     "password",

@@ -12,6 +12,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures a Frontegg webhook.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := frontegg.NewWebhook(ctx, "example", &frontegg.WebhookArgs{
+//				Enabled:     pulumi.Bool(true),
+//				Name:        pulumi.String("Example webhook"),
+//				Description: pulumi.String("An example of a webhook"),
+//				Url:         pulumi.String("https://example.com/webhook"),
+//				Secret:      pulumi.String("example-secret"),
+//				Events: pulumi.StringArray{
+//					pulumi.String("frontegg.user.authenticated"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Webhook struct {
 	pulumi.CustomResourceState
 

@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Frontegg
 {
+    /// <summary>
+    /// Configures a Frontegg webhook.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Frontegg = Pulumi.Frontegg;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Frontegg.Webhook("example", new()
+    ///     {
+    ///         Enabled = true,
+    ///         Name = "Example webhook",
+    ///         Description = "An example of a webhook",
+    ///         Url = "https://example.com/webhook",
+    ///         Secret = "example-secret",
+    ///         Events = new[]
+    ///         {
+    ///             "frontegg.user.authenticated",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [FronteggResourceType("frontegg:index/webhook:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
     {
@@ -89,6 +118,7 @@ namespace Pulumi.Frontegg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/HighTideCRM/pulumi-frontegg",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

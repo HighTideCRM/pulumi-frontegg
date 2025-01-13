@@ -9,6 +9,28 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Frontegg
 {
+    /// <summary>
+    /// Configures a Frontegg permission category.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Frontegg = Pulumi.Frontegg;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Frontegg.PermissionCategory("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         Description = "An example of a permission category",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [FronteggResourceType("frontegg:index/permissionCategory:PermissionCategory")]
     public partial class PermissionCategory : global::Pulumi.CustomResource
     {
@@ -53,6 +75,7 @@ namespace Pulumi.Frontegg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/HighTideCRM/pulumi-frontegg",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

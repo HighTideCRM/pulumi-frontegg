@@ -120,7 +120,19 @@ class PermissionCategory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PermissionCategory resource with the given unique name, props, and options.
+        Configures a Frontegg permission category.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        example = frontegg.PermissionCategory("example",
+            name="Example",
+            description="An example of a permission category")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A human-readable description of the permission category.
@@ -133,7 +145,19 @@ class PermissionCategory(pulumi.CustomResource):
                  args: PermissionCategoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PermissionCategory resource with the given unique name, props, and options.
+        Configures a Frontegg permission category.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        example = frontegg.PermissionCategory("example",
+            name="Example",
+            description="An example of a permission category")
+        ```
+
         :param str resource_name: The name of the resource.
         :param PermissionCategoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

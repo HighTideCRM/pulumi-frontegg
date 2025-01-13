@@ -12,6 +12,197 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Workspace configuration.
+//
+// This is a singleton resource. You must only create one Workspace resource
+// per Frontegg provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := frontegg.NewWorkspace(ctx, "example", &frontegg.WorkspaceArgs{
+//				Name:              pulumi.String("Your Company"),
+//				Country:           pulumi.String("US"),
+//				BackendStack:      pulumi.String("Python"),
+//				FrontendStack:     pulumi.String("React"),
+//				OpenSaasInstalled: pulumi.Bool(false),
+//				FronteggDomain:    pulumi.String("blah.frontegg.com"),
+//				AllowedOrigins: pulumi.StringArray{
+//					pulumi.String("https://yourcompany.com"),
+//				},
+//				AuthPolicy: &frontegg.WorkspaceAuthPolicyArgs{
+//					AllowUnverifiedUsers:         pulumi.Bool(true),
+//					AllowSignups:                 pulumi.Bool(true),
+//					EnableApiTokens:              pulumi.Bool(true),
+//					EnableRoles:                  pulumi.Bool(true),
+//					JwtAlgorithm:                 pulumi.String("RS256"),
+//					MachineToMachineAuthStrategy: pulumi.String("ClientCredentials"),
+//					JwtAccessTokenExpiration:     pulumi.Int(86400),
+//					JwtRefreshTokenExpiration:    pulumi.Int(2592000),
+//					SameSiteCookiePolicy:         pulumi.String("strict"),
+//					AuthStrategy:                 pulumi.String("EmailAndPassword"),
+//					AllowTenantInvitations:       pulumi.Bool(true),
+//				},
+//				MfaPolicy: &frontegg.WorkspaceMfaPolicyArgs{
+//					AllowRememberDevice: pulumi.Bool(true),
+//					DeviceExpiration:    pulumi.Int(604800),
+//					Enforce:             pulumi.String("unless-saml"),
+//				},
+//				MfaAuthenticationApp: &frontegg.WorkspaceMfaAuthenticationAppArgs{
+//					ServiceName: pulumi.String("Your Company"),
+//				},
+//				LockoutPolicy: &frontegg.WorkspaceLockoutPolicyArgs{
+//					MaxAttempts: pulumi.Int(10),
+//				},
+//				PasswordPolicy: &frontegg.WorkspacePasswordPolicyArgs{
+//					AllowPassphrases: pulumi.Bool(false),
+//					MinLength:        pulumi.Int(10),
+//					MaxLength:        pulumi.Int(128),
+//					MinTests:         pulumi.Int(2),
+//					MinPhraseLength:  pulumi.Int(6),
+//					History:          pulumi.Int(2),
+//				},
+//				CaptchaPolicy: &frontegg.WorkspaceCaptchaPolicyArgs{
+//					SiteKey:   pulumi.String("fake-site-key"),
+//					SecretKey: pulumi.String("fake-secret-key"),
+//					MinScore:  pulumi.Float64(0.5),
+//				},
+//				HostedLogin: &frontegg.WorkspaceHostedLoginArgs{
+//					AllowedRedirectUrls: pulumi.StringArray{
+//						pulumi.String("http://example.com/a"),
+//						pulumi.String("http://example.com/b"),
+//					},
+//				},
+//				FacebookSocialLogin: &frontegg.WorkspaceFacebookSocialLoginArgs{
+//					ClientId:    pulumi.String("fake-client-id"),
+//					RedirectUrl: pulumi.String("fake-redirect-url"),
+//					Secret:      pulumi.String("fake-secret"),
+//					Customised:  pulumi.Bool(false),
+//				},
+//				GithubSocialLogin: &frontegg.WorkspaceGithubSocialLoginArgs{
+//					ClientId:    pulumi.String("fake-client-id"),
+//					RedirectUrl: pulumi.String("fake-redirect-url"),
+//					Secret:      pulumi.String("fake-secret"),
+//					Customised:  pulumi.Bool(false),
+//				},
+//				GoogleSocialLogin: &frontegg.WorkspaceGoogleSocialLoginArgs{
+//					ClientId:    pulumi.String("fake-client-id"),
+//					RedirectUrl: pulumi.String("fake-redirect-url"),
+//					Secret:      pulumi.String("fake-secret"),
+//					Customised:  pulumi.Bool(false),
+//				},
+//				MicrosoftSocialLogin: &frontegg.WorkspaceMicrosoftSocialLoginArgs{
+//					ClientId:    pulumi.String("fake-client-id"),
+//					RedirectUrl: pulumi.String("fake-redirect-url"),
+//					Secret:      pulumi.String("fake-secret"),
+//					Customised:  pulumi.Bool(false),
+//				},
+//				Saml: &frontegg.WorkspaceSamlArgs{
+//					AcsUrl:      pulumi.String("https://mycompany.com/saml"),
+//					SpEntityId:  pulumi.String("my-company"),
+//					RedirectUrl: pulumi.String("http://localhost:3000"),
+//				},
+//				Oidc: &frontegg.WorkspaceOidcArgs{
+//					RedirectUrl: pulumi.String("http://localhost:3000"),
+//				},
+//				ResetPasswordEmail: &frontegg.WorkspaceResetPasswordEmailArgs{
+//					FromAddress:  pulumi.String("me@company.com"),
+//					FromName:     pulumi.String("Your Company"),
+//					Subject:      pulumi.String("Reset Your Company Password"),
+//					HtmlTemplate: pulumi.String("<strong>Reset your password! {{redirectURL}}</strong>"),
+//					RedirectUrl:  pulumi.String("https://yourcompany.com/reset"),
+//				},
+//				AdminPortal: &frontegg.WorkspaceAdminPortalArgs{
+//					EnableAccountSettings:   pulumi.Bool(false),
+//					EnableApiTokens:         pulumi.Bool(false),
+//					EnableAuditLogs:         pulumi.Bool(false),
+//					EnablePersonalApiTokens: pulumi.Bool(false),
+//					EnablePrivacy:           pulumi.Bool(false),
+//					EnableProfile:           pulumi.Bool(false),
+//					EnableRoles:             pulumi.Bool(false),
+//					EnableSecurity:          pulumi.Bool(false),
+//					EnableSso:               pulumi.Bool(false),
+//					EnableSubscriptions:     pulumi.Bool(false),
+//					EnableUsage:             pulumi.Bool(false),
+//					EnableUsers:             pulumi.Bool(false),
+//					EnableWebhooks:          pulumi.Bool(false),
+//					EnableGroups:            pulumi.Bool(false),
+//					EnableProvisioning:      pulumi.Bool(false),
+//					Palette: &frontegg.WorkspaceAdminPortalPaletteArgs{
+//						Errors: frontegg.WorkspaceAdminPortalPaletteErrorArray{
+//							&frontegg.WorkspaceAdminPortalPaletteErrorArgs{
+//								ContrastText: pulumi.String("#eeeef0"),
+//								Dark:         pulumi.String("#ae402c"),
+//								Light:        pulumi.String("#FFEEEA"),
+//								Main:         pulumi.String("#E1583E"),
+//							},
+//						},
+//						Infos: frontegg.WorkspaceAdminPortalPaletteInfoArray{
+//							&frontegg.WorkspaceAdminPortalPaletteInfoArgs{
+//								ContrastText: pulumi.String("#eeeef0"),
+//								Dark:         pulumi.String("#3c6492"),
+//								Light:        pulumi.String("#E2EEF9"),
+//								Main:         pulumi.String("#5587C0"),
+//							},
+//						},
+//						Primaries: frontegg.WorkspaceAdminPortalPalettePrimaryArray{
+//							&frontegg.WorkspaceAdminPortalPalettePrimaryArgs{
+//								Active:       pulumi.String("#278854"),
+//								ContrastText: pulumi.String("#eeeef0"),
+//								Dark:         pulumi.String("#36A76A"),
+//								Hover:        pulumi.String("#32A265"),
+//								Light:        pulumi.String("#A2E1BF"),
+//								Main:         pulumi.String("#43BB7A"),
+//							},
+//						},
+//						Secondaries: frontegg.WorkspaceAdminPortalPaletteSecondaryArray{
+//							&frontegg.WorkspaceAdminPortalPaletteSecondaryArgs{
+//								Active:       pulumi.String("#E6ECF4"),
+//								ContrastText: pulumi.String("#eeeef0"),
+//								Dark:         pulumi.String("#E6ECF4"),
+//								Hover:        pulumi.String("#F0F3F8"),
+//								Light:        pulumi.String("#FBFBFC"),
+//								Main:         pulumi.String("#FBFBFC"),
+//							},
+//						},
+//						Successes: frontegg.WorkspaceAdminPortalPaletteSuccessArray{
+//							&frontegg.WorkspaceAdminPortalPaletteSuccessArgs{
+//								ContrastText: pulumi.String("#eeeef0"),
+//								Dark:         pulumi.String("#1d7c30"),
+//								Light:        pulumi.String("#E1F5E2"),
+//								Main:         pulumi.String("#2CA744"),
+//							},
+//						},
+//						Warnings: frontegg.WorkspaceAdminPortalPaletteWarningArray{
+//							&frontegg.WorkspaceAdminPortalPaletteWarningArgs{
+//								ContrastText: pulumi.String("#eeeef0"),
+//								Dark:         pulumi.String("#EAE1C2"),
+//								Light:        pulumi.String("#F9F4E2"),
+//								Main:         pulumi.String("#A79D7B"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

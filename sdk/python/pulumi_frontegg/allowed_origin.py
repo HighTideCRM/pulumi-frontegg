@@ -71,7 +71,8 @@ class AllowedOrigin(pulumi.CustomResource):
                  allowed_origin: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AllowedOrigin resource with the given unique name, props, and options.
+        Configures a Frontegg allowed origin.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_origin: The allowed origin URI.
@@ -83,7 +84,8 @@ class AllowedOrigin(pulumi.CustomResource):
                  args: AllowedOriginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AllowedOrigin resource with the given unique name, props, and options.
+        Configures a Frontegg allowed origin.
+
         :param str resource_name: The name of the resource.
         :param AllowedOriginArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

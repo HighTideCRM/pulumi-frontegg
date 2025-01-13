@@ -12,6 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures a Frontegg allowed origin.
 type AllowedOrigin struct {
 	pulumi.CustomResourceState
 

@@ -184,7 +184,17 @@ class Permission(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Permission resource with the given unique name, props, and options.
+        Configures a Frontegg permission.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        read_users = frontegg.get_permission(key="fe.secure.read.users")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category_id: The identifier of the category to which this permission belongs.
@@ -199,7 +209,17 @@ class Permission(pulumi.CustomResource):
                  args: PermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Permission resource with the given unique name, props, and options.
+        Configures a Frontegg permission.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        read_users = frontegg.get_permission(key="fe.secure.read.users")
+        ```
+
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

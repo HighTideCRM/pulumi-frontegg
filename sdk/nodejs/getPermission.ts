@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@pulumi/frontegg";
+ *
+ * const readUsers = frontegg.getPermission({
+ *     key: "fe.secure.read.users",
+ * });
+ * export const permissionId = readUsers.then(readUsers => readUsers.id);
+ * ```
+ */
 export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("frontegg:index/getPermission:getPermission", {
@@ -15,6 +28,9 @@ export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getPermission.
  */
 export interface GetPermissionArgs {
+    /**
+     * A human-readable identifier for the permission.
+     */
     key: string;
 }
 
@@ -22,16 +38,44 @@ export interface GetPermissionArgs {
  * A collection of values returned by getPermission.
  */
 export interface GetPermissionResult {
+    /**
+     * The identifier of the category to which this permission belongs.
+     */
     readonly categoryId: string;
+    /**
+     * The timestamp at which the permission was created.
+     */
     readonly createdAt: string;
+    /**
+     * A human-readable description of the permission.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A human-readable identifier for the permission.
+     */
     readonly key: string;
+    /**
+     * A human-readable name for the permission.
+     */
     readonly name: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@pulumi/frontegg";
+ *
+ * const readUsers = frontegg.getPermission({
+ *     key: "fe.secure.read.users",
+ * });
+ * export const permissionId = readUsers.then(readUsers => readUsers.id);
+ * ```
+ */
 export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("frontegg:index/getPermission:getPermission", {
@@ -43,5 +87,8 @@ export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getPermission.
  */
 export interface GetPermissionOutputArgs {
+    /**
+     * A human-readable identifier for the permission.
+     */
     key: pulumi.Input<string>;
 }

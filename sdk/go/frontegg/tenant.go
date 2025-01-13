@@ -12,6 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures a Frontegg tenant.
 type Tenant struct {
 	pulumi.CustomResourceState
 

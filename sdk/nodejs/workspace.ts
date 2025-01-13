@@ -6,6 +6,170 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Workspace configuration.
+ *
+ * This is a singleton resource. You must only create one frontegg.Workspace resource
+ * per Frontegg provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as frontegg from "@hightide-crm/pulumi-frontegg";
+ *
+ * const example = new frontegg.Workspace("example", {
+ *     name: "Your Company",
+ *     country: "US",
+ *     backendStack: "Python",
+ *     frontendStack: "React",
+ *     openSaasInstalled: false,
+ *     fronteggDomain: "blah.frontegg.com",
+ *     allowedOrigins: ["https://yourcompany.com"],
+ *     authPolicy: {
+ *         allowUnverifiedUsers: true,
+ *         allowSignups: true,
+ *         enableApiTokens: true,
+ *         enableRoles: true,
+ *         jwtAlgorithm: "RS256",
+ *         machineToMachineAuthStrategy: "ClientCredentials",
+ *         jwtAccessTokenExpiration: 86400,
+ *         jwtRefreshTokenExpiration: 2592000,
+ *         sameSiteCookiePolicy: "strict",
+ *         authStrategy: "EmailAndPassword",
+ *         allowTenantInvitations: true,
+ *     },
+ *     mfaPolicy: {
+ *         allowRememberDevice: true,
+ *         deviceExpiration: 604800,
+ *         enforce: "unless-saml",
+ *     },
+ *     mfaAuthenticationApp: {
+ *         serviceName: "Your Company",
+ *     },
+ *     lockoutPolicy: {
+ *         maxAttempts: 10,
+ *     },
+ *     passwordPolicy: {
+ *         allowPassphrases: false,
+ *         minLength: 10,
+ *         maxLength: 128,
+ *         minTests: 2,
+ *         minPhraseLength: 6,
+ *         history: 2,
+ *     },
+ *     captchaPolicy: {
+ *         siteKey: "fake-site-key",
+ *         secretKey: "fake-secret-key",
+ *         minScore: 0.5,
+ *     },
+ *     hostedLogin: {
+ *         allowedRedirectUrls: [
+ *             "http://example.com/a",
+ *             "http://example.com/b",
+ *         ],
+ *     },
+ *     facebookSocialLogin: {
+ *         clientId: "fake-client-id",
+ *         redirectUrl: "fake-redirect-url",
+ *         secret: "fake-secret",
+ *         customised: false,
+ *     },
+ *     githubSocialLogin: {
+ *         clientId: "fake-client-id",
+ *         redirectUrl: "fake-redirect-url",
+ *         secret: "fake-secret",
+ *         customised: false,
+ *     },
+ *     googleSocialLogin: {
+ *         clientId: "fake-client-id",
+ *         redirectUrl: "fake-redirect-url",
+ *         secret: "fake-secret",
+ *         customised: false,
+ *     },
+ *     microsoftSocialLogin: {
+ *         clientId: "fake-client-id",
+ *         redirectUrl: "fake-redirect-url",
+ *         secret: "fake-secret",
+ *         customised: false,
+ *     },
+ *     saml: {
+ *         acsUrl: "https://mycompany.com/saml",
+ *         spEntityId: "my-company",
+ *         redirectUrl: "http://localhost:3000",
+ *     },
+ *     oidc: {
+ *         redirectUrl: "http://localhost:3000",
+ *     },
+ *     resetPasswordEmail: {
+ *         fromAddress: "me@company.com",
+ *         fromName: "Your Company",
+ *         subject: "Reset Your Company Password",
+ *         htmlTemplate: "<strong>Reset your password! {{redirectURL}}</strong>",
+ *         redirectUrl: "https://yourcompany.com/reset",
+ *     },
+ *     adminPortal: {
+ *         enableAccountSettings: false,
+ *         enableApiTokens: false,
+ *         enableAuditLogs: false,
+ *         enablePersonalApiTokens: false,
+ *         enablePrivacy: false,
+ *         enableProfile: false,
+ *         enableRoles: false,
+ *         enableSecurity: false,
+ *         enableSso: false,
+ *         enableSubscriptions: false,
+ *         enableUsage: false,
+ *         enableUsers: false,
+ *         enableWebhooks: false,
+ *         enableGroups: false,
+ *         enableProvisioning: false,
+ *         palette: {
+ *             errors: [{
+ *                 contrastText: "#eeeef0",
+ *                 dark: "#ae402c",
+ *                 light: "#FFEEEA",
+ *                 main: "#E1583E",
+ *             }],
+ *             infos: [{
+ *                 contrastText: "#eeeef0",
+ *                 dark: "#3c6492",
+ *                 light: "#E2EEF9",
+ *                 main: "#5587C0",
+ *             }],
+ *             primaries: [{
+ *                 active: "#278854",
+ *                 contrastText: "#eeeef0",
+ *                 dark: "#36A76A",
+ *                 hover: "#32A265",
+ *                 light: "#A2E1BF",
+ *                 main: "#43BB7A",
+ *             }],
+ *             secondaries: [{
+ *                 active: "#E6ECF4",
+ *                 contrastText: "#eeeef0",
+ *                 dark: "#E6ECF4",
+ *                 hover: "#F0F3F8",
+ *                 light: "#FBFBFC",
+ *                 main: "#FBFBFC",
+ *             }],
+ *             successes: [{
+ *                 contrastText: "#eeeef0",
+ *                 dark: "#1d7c30",
+ *                 light: "#E1F5E2",
+ *                 main: "#2CA744",
+ *             }],
+ *             warnings: [{
+ *                 contrastText: "#eeeef0",
+ *                 dark: "#EAE1C2",
+ *                 light: "#F9F4E2",
+ *                 main: "#A79D7B",
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
+ */
 export class Workspace extends pulumi.CustomResource {
     /**
      * Get an existing Workspace resource's state with the given name, ID, and optional extra

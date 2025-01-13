@@ -87,7 +87,8 @@ class RedirectUri(pulumi.CustomResource):
                  redirect_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RedirectUri resource with the given unique name, props, and options.
+        Configures a Frontegg Redirect URI.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] redirect_uri: The redirect URI.
@@ -99,7 +100,8 @@ class RedirectUri(pulumi.CustomResource):
                  args: RedirectUriArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RedirectUri resource with the given unique name, props, and options.
+        Configures a Frontegg Redirect URI.
+
         :param str resource_name: The name of the resource.
         :param RedirectUriArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

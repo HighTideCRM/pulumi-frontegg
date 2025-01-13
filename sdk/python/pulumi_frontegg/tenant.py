@@ -162,7 +162,8 @@ class Tenant(pulumi.CustomResource):
                  selected_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Tenant resource with the given unique name, props, and options.
+        Configures a Frontegg tenant.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_uri: The application URI for this tenant.
@@ -176,7 +177,8 @@ class Tenant(pulumi.CustomResource):
                  args: TenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Tenant resource with the given unique name, props, and options.
+        Configures a Frontegg tenant.
+
         :param str resource_name: The name of the resource.
         :param TenantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

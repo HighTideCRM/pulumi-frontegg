@@ -12,6 +12,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures a Frontegg role.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := frontegg.NewRole(ctx, "example", &frontegg.RoleArgs{
+//				Name:        pulumi.String("Example"),
+//				Key:         pulumi.String("example"),
+//				Description: pulumi.String("An example of a role"),
+//				Default:     pulumi.Bool(true),
+//				Level:       pulumi.Int(0),
+//				PermissionIds: pulumi.StringArray{
+//					fronteggPermission.Example.Id,
+//					readUsers.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Role struct {
 	pulumi.CustomResourceState
 

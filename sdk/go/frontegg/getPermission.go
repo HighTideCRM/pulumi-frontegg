@@ -11,6 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			readUsers, err := frontegg.LookupPermission(ctx, &frontegg.LookupPermissionArgs{
+//				Key: "fe.secure.read.users",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("permissionId", readUsers.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...pulumi.InvokeOption) (*LookupPermissionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionResult
@@ -23,17 +49,23 @@ func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...p
 
 // A collection of arguments for invoking getPermission.
 type LookupPermissionArgs struct {
+	// A human-readable identifier for the permission.
 	Key string `pulumi:"key"`
 }
 
 // A collection of values returned by getPermission.
 type LookupPermissionResult struct {
-	CategoryId  string `pulumi:"categoryId"`
-	CreatedAt   string `pulumi:"createdAt"`
+	// The identifier of the category to which this permission belongs.
+	CategoryId string `pulumi:"categoryId"`
+	// The timestamp at which the permission was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// A human-readable description of the permission.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Key  string `pulumi:"key"`
+	Id string `pulumi:"id"`
+	// A human-readable identifier for the permission.
+	Key string `pulumi:"key"`
+	// A human-readable name for the permission.
 	Name string `pulumi:"name"`
 }
 
@@ -48,6 +80,7 @@ func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs
 
 // A collection of arguments for invoking getPermission.
 type LookupPermissionOutputArgs struct {
+	// A human-readable identifier for the permission.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -70,14 +103,17 @@ func (o LookupPermissionResultOutput) ToLookupPermissionResultOutputWithContext(
 	return o
 }
 
+// The identifier of the category to which this permission belongs.
 func (o LookupPermissionResultOutput) CategoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionResult) string { return v.CategoryId }).(pulumi.StringOutput)
 }
 
+// The timestamp at which the permission was created.
 func (o LookupPermissionResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// A human-readable description of the permission.
 func (o LookupPermissionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -87,10 +123,12 @@ func (o LookupPermissionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A human-readable identifier for the permission.
 func (o LookupPermissionResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A human-readable name for the permission.
 func (o LookupPermissionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionResult) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -330,7 +330,26 @@ class Role(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Role resource with the given unique name, props, and options.
+        Configures a Frontegg role.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        example = frontegg.Role("example",
+            name="Example",
+            key="example",
+            description="An example of a role",
+            default=True,
+            level=0,
+            permission_ids=[
+                frontegg_permission["example"]["id"],
+                read_users["id"],
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] default: Whether the role should be applied to new users by default.
@@ -349,7 +368,26 @@ class Role(pulumi.CustomResource):
                  args: RoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Role resource with the given unique name, props, and options.
+        Configures a Frontegg role.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_frontegg as frontegg
+
+        example = frontegg.Role("example",
+            name="Example",
+            key="example",
+            description="An example of a role",
+            default=True,
+            level=0,
+            permission_ids=[
+                frontegg_permission["example"]["id"],
+                read_users["id"],
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

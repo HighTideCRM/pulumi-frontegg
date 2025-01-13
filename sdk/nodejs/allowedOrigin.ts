@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures a Frontegg allowed origin.
+ */
 export class AllowedOrigin extends pulumi.CustomResource {
     /**
      * Get an existing AllowedOrigin resource's state with the given name, ID, and optional extra
