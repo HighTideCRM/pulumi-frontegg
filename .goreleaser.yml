@@ -6,7 +6,7 @@ before:
   hooks:
     - make tfgen
 builds:
-  - binary: pulumi-resource-fivetran
+  - binary: pulumi-resource-frontegg
     dir: provider
     env:
       - CGO_ENABLED=0
@@ -19,8 +19,8 @@ builds:
       - linux
     ldflags:
       # The line below MUST align with the module in current provider/go.mod
-      - -X github.com/csechrist/pulumi-fivetran/provider/pkg/version.Version={{.Tag }}
-    main: ./cmd/pulumi-resource-fivetran/
+      - -X github.com/csechrist/pulumi-frontegg/provider/pkg/version.Version={{.Tag }}
+    main: ./cmd/pulumi-resource-frontegg/
 changelog:
   disable: true
 release:
