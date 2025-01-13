@@ -1,0 +1,3495 @@
+{
+    "name": "frontegg",
+    "displayName": "Frontegg",
+    "description": "A Pulumi package for creating and managing frontegg cloud resources.",
+    "keywords": [
+        "frontegg",
+        "category/cloud"
+    ],
+    "homepage": "https://www.frontegg.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`frontegg` Terraform Provider](https://github.com/terraform-providers/terraform-provider-frontegg).",
+    "repository": "https://github.com/HighTideCRM/pulumi-frontegg",
+    "publisher": "HighTide",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true
+        },
+        "go": {
+            "importBasePath": "github.com/HighTideCRM/pulumi-frontegg/sdk/go/frontegg",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "nodejs": {
+            "packageName": "@hightide-crm/pulumi-frontegg",
+            "packageDescription": "A Pulumi package for creating and managing frontegg cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-frontegg)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-frontegg` repo](https://github.com/HighTideCRM/pulumi-frontegg/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-frontegg` repo](https://github.com/terraform-providers/terraform-provider-frontegg/issues).",
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "python": {
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-frontegg)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-frontegg` repo](https://github.com/HighTideCRM/pulumi-frontegg/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-frontegg` repo](https://github.com/terraform-providers/terraform-provider-frontegg/issues).",
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
+            "pyproject": {
+                "enabled": true
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "apiBaseUrl": {
+                "type": "string",
+                "description": "The Frontegg api url. Override to change region. Defaults to EU url.\n"
+            },
+            "clientId": {
+                "type": "string",
+                "description": "The client ID for a Frontegg portal API key.\n"
+            },
+            "environmentId": {
+                "type": "string",
+                "description": "The client ID from environment settings.\n",
+                "secret": true
+            },
+            "portalBaseUrl": {
+                "type": "string",
+                "description": "The Frontegg portal url. Override to change region. Defaults to EU url.\n"
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "The corresponding secret key for the API key.\n",
+                "secret": true
+            }
+        },
+        "defaults": [
+            "clientId",
+            "secretKey"
+        ]
+    },
+    "types": {
+        "frontegg:index/WorkspaceAdminPortal:WorkspaceAdminPortal": {
+            "properties": {
+                "enableAccountSettings": {
+                    "type": "boolean",
+                    "description": "Enable access to account settings in the admin portal.\n"
+                },
+                "enableApiTokens": {
+                    "type": "boolean",
+                    "description": "Enable access to API tokens in the admin portal.\n"
+                },
+                "enableAuditLogs": {
+                    "type": "boolean",
+                    "description": "Enable access to audit logs in the admin portal.\n"
+                },
+                "enableGroups": {
+                    "type": "boolean",
+                    "description": "Enable access to groups in the admin portal.\n"
+                },
+                "enablePersonalApiTokens": {
+                    "type": "boolean",
+                    "description": "Enable access to personal API tokens in the admin portal.\n"
+                },
+                "enablePrivacy": {
+                    "type": "boolean",
+                    "description": "Enable access to privacy settings in the admin portal.\n"
+                },
+                "enableProfile": {
+                    "type": "boolean",
+                    "description": "Enable access to profile settings in the admin portal.\n"
+                },
+                "enableProvisioning": {
+                    "type": "boolean",
+                    "description": "Enable access to provisioning settings in the admin portal.\n"
+                },
+                "enableRoles": {
+                    "type": "boolean",
+                    "description": "Enable access to roles and permissions in the admin portal.\n"
+                },
+                "enableSecurity": {
+                    "type": "boolean",
+                    "description": "Enable access to security settings in the admin portal.\n"
+                },
+                "enableSso": {
+                    "type": "boolean",
+                    "description": "Enable access to SSO settings in the admin portal.\n"
+                },
+                "enableSubscriptions": {
+                    "type": "boolean",
+                    "description": "Enable access to subscription settings in the admin portal.\n"
+                },
+                "enableUsage": {
+                    "type": "boolean",
+                    "description": "Enable access to usage information in the admin portal.\n"
+                },
+                "enableUsers": {
+                    "type": "boolean",
+                    "description": "Enable access to user management in the admin portal.\n"
+                },
+                "enableWebhooks": {
+                    "type": "boolean",
+                    "description": "Enable access to webhooks in the admin portal.\n"
+                },
+                "palette": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPalette:WorkspaceAdminPortalPalette",
+                    "description": "Configures the color palette for the admin portal.\n",
+                    "deprecationMessage": "Use `palette_admin_portal Or/And palette_login_box` instead."
+                },
+                "paletteAdminPortal": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortal:WorkspaceAdminPortalPaletteAdminPortal",
+                    "description": "Configures the color palette for the admin portal.\n"
+                },
+                "paletteLoginBox": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBox:WorkspaceAdminPortalPaletteLoginBox",
+                    "description": "Configures the color palette for the admin portal.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enableAccountSettings",
+                "enableApiTokens",
+                "enableAuditLogs",
+                "enableGroups",
+                "enablePersonalApiTokens",
+                "enablePrivacy",
+                "enableProfile",
+                "enableProvisioning",
+                "enableRoles",
+                "enableSecurity",
+                "enableSso",
+                "enableSubscriptions",
+                "enableUsage",
+                "enableUsers",
+                "enableWebhooks"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPalette:WorkspaceAdminPortalPalette": {
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteError:WorkspaceAdminPortalPaletteError"
+                    },
+                    "description": "Error color.\n"
+                },
+                "infos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteInfo:WorkspaceAdminPortalPaletteInfo"
+                    },
+                    "description": "Info color.\n"
+                },
+                "primaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPalettePrimary:WorkspaceAdminPortalPalettePrimary"
+                    },
+                    "description": "Primary color.\n"
+                },
+                "secondaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteSecondary:WorkspaceAdminPortalPaletteSecondary"
+                    },
+                    "description": "Secondary color.\n"
+                },
+                "successes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteSuccess:WorkspaceAdminPortalPaletteSuccess"
+                    },
+                    "description": "Success color.\n"
+                },
+                "warnings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteWarning:WorkspaceAdminPortalPaletteWarning"
+                    },
+                    "description": "Warning color.\n"
+                }
+            },
+            "type": "object"
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortal:WorkspaceAdminPortalPaletteAdminPortal": {
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortalError:WorkspaceAdminPortalPaletteAdminPortalError"
+                    },
+                    "description": "Error color.\n"
+                },
+                "infos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortalInfo:WorkspaceAdminPortalPaletteAdminPortalInfo"
+                    },
+                    "description": "Info color.\n"
+                },
+                "primaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortalPrimary:WorkspaceAdminPortalPaletteAdminPortalPrimary"
+                    },
+                    "description": "Primary color.\n"
+                },
+                "secondaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortalSecondary:WorkspaceAdminPortalPaletteAdminPortalSecondary"
+                    },
+                    "description": "Secondary color.\n"
+                },
+                "successes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortalSuccess:WorkspaceAdminPortalPaletteAdminPortalSuccess"
+                    },
+                    "description": "Success color.\n"
+                },
+                "warnings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteAdminPortalWarning:WorkspaceAdminPortalPaletteAdminPortalWarning"
+                    },
+                    "description": "Warning color.\n"
+                }
+            },
+            "type": "object"
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortalError:WorkspaceAdminPortalPaletteAdminPortalError": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortalInfo:WorkspaceAdminPortalPaletteAdminPortalInfo": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortalPrimary:WorkspaceAdminPortalPaletteAdminPortalPrimary": {
+            "properties": {
+                "active": {
+                    "type": "string",
+                    "description": "active color.\n"
+                },
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "hover": {
+                    "type": "string",
+                    "description": "hover color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "contrastText",
+                "dark",
+                "hover",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortalSecondary:WorkspaceAdminPortalPaletteAdminPortalSecondary": {
+            "properties": {
+                "active": {
+                    "type": "string",
+                    "description": "active color.\n"
+                },
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "hover": {
+                    "type": "string",
+                    "description": "hover color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "contrastText",
+                "dark",
+                "hover",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortalSuccess:WorkspaceAdminPortalPaletteAdminPortalSuccess": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteAdminPortalWarning:WorkspaceAdminPortalPaletteAdminPortalWarning": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteError:WorkspaceAdminPortalPaletteError": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteInfo:WorkspaceAdminPortalPaletteInfo": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBox:WorkspaceAdminPortalPaletteLoginBox": {
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBoxError:WorkspaceAdminPortalPaletteLoginBoxError"
+                    },
+                    "description": "Error color.\n"
+                },
+                "infos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBoxInfo:WorkspaceAdminPortalPaletteLoginBoxInfo"
+                    },
+                    "description": "Info color.\n"
+                },
+                "primaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBoxPrimary:WorkspaceAdminPortalPaletteLoginBoxPrimary"
+                    },
+                    "description": "Primary color.\n"
+                },
+                "secondaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBoxSecondary:WorkspaceAdminPortalPaletteLoginBoxSecondary"
+                    },
+                    "description": "Secondary color.\n"
+                },
+                "successes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBoxSuccess:WorkspaceAdminPortalPaletteLoginBoxSuccess"
+                    },
+                    "description": "Success color.\n"
+                },
+                "warnings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortalPaletteLoginBoxWarning:WorkspaceAdminPortalPaletteLoginBoxWarning"
+                    },
+                    "description": "Warning color.\n"
+                }
+            },
+            "type": "object"
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBoxError:WorkspaceAdminPortalPaletteLoginBoxError": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBoxInfo:WorkspaceAdminPortalPaletteLoginBoxInfo": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBoxPrimary:WorkspaceAdminPortalPaletteLoginBoxPrimary": {
+            "properties": {
+                "active": {
+                    "type": "string",
+                    "description": "active color.\n"
+                },
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "hover": {
+                    "type": "string",
+                    "description": "hover color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "contrastText",
+                "dark",
+                "hover",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBoxSecondary:WorkspaceAdminPortalPaletteLoginBoxSecondary": {
+            "properties": {
+                "active": {
+                    "type": "string",
+                    "description": "active color.\n"
+                },
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "hover": {
+                    "type": "string",
+                    "description": "hover color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "contrastText",
+                "dark",
+                "hover",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBoxSuccess:WorkspaceAdminPortalPaletteLoginBoxSuccess": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteLoginBoxWarning:WorkspaceAdminPortalPaletteLoginBoxWarning": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPalettePrimary:WorkspaceAdminPortalPalettePrimary": {
+            "properties": {
+                "active": {
+                    "type": "string",
+                    "description": "active color.\n"
+                },
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "hover": {
+                    "type": "string",
+                    "description": "hover color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "contrastText",
+                "dark",
+                "hover",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteSecondary:WorkspaceAdminPortalPaletteSecondary": {
+            "properties": {
+                "active": {
+                    "type": "string",
+                    "description": "active color.\n"
+                },
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "hover": {
+                    "type": "string",
+                    "description": "hover color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "contrastText",
+                "dark",
+                "hover",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteSuccess:WorkspaceAdminPortalPaletteSuccess": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAdminPortalPaletteWarning:WorkspaceAdminPortalPaletteWarning": {
+            "properties": {
+                "contrastText": {
+                    "type": "string",
+                    "description": "contrast_text color.\n"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "dark color.\n"
+                },
+                "light": {
+                    "type": "string",
+                    "description": "light color.\n"
+                },
+                "main": {
+                    "type": "string",
+                    "description": "main color.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "contrastText",
+                "dark",
+                "light",
+                "main"
+            ]
+        },
+        "frontegg:index/WorkspaceAuthPolicy:WorkspaceAuthPolicy": {
+            "properties": {
+                "allowSignups": {
+                    "type": "boolean",
+                    "description": "Whether users are allowed to sign up.\n"
+                },
+                "allowTenantInvitations": {
+                    "type": "boolean",
+                    "description": "Allow tenants to invite new users via an invitation link.\n"
+                },
+                "allowUnverifiedUsers": {
+                    "type": "boolean",
+                    "description": "Whether unverified users are allowed to log in.\n"
+                },
+                "authStrategy": {
+                    "type": "string",
+                    "description": "The authentication strategy to use for people logging in.\n\n\tMust be one of \"EmailAndPassword\", \"Code\", \"MagicLink\", \"NoLocalAuthentication\", \"SmsCode\"\n"
+                },
+                "enableApiTokens": {
+                    "type": "boolean",
+                    "description": "Whether users can create API tokens.\n"
+                },
+                "enableRoles": {
+                    "type": "boolean",
+                    "description": "Whether granular roles and permissions are enabled.\n"
+                },
+                "jwtAccessTokenExpiration": {
+                    "type": "integer",
+                    "description": "The expiration time for the JWT access tokens issued by Frontegg.\n"
+                },
+                "jwtAlgorithm": {
+                    "type": "string",
+                    "description": "The algorithm Frontegg uses to sign JWT tokens.\n"
+                },
+                "jwtPublicKey": {
+                    "type": "string",
+                    "description": "The public key that Frontegg uses to sign JWT tokens.\n"
+                },
+                "jwtRefreshTokenExpiration": {
+                    "type": "integer",
+                    "description": "The expiration time for the JWT refresh tokens issued by Frontegg.\n"
+                },
+                "machineToMachineAuthStrategy": {
+                    "type": "string",
+                    "description": "Type of tokens users will be able to generate.\n\t\t\t\t\t\t\tMust be one of \"ClientCredentials\" or \"AccessToken\".\n"
+                },
+                "sameSiteCookiePolicy": {
+                    "type": "string",
+                    "description": "The SameSite policy to use for Frontegg cookies.\n\n\tMust be one of \"none\", \"lax\", or \"strict\".\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowSignups",
+                "allowTenantInvitations",
+                "allowUnverifiedUsers",
+                "authStrategy",
+                "enableApiTokens",
+                "enableRoles",
+                "jwtAccessTokenExpiration",
+                "jwtRefreshTokenExpiration",
+                "sameSiteCookiePolicy"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "allowSignups",
+                        "allowTenantInvitations",
+                        "allowUnverifiedUsers",
+                        "authStrategy",
+                        "enableApiTokens",
+                        "enableRoles",
+                        "jwtAccessTokenExpiration",
+                        "jwtPublicKey",
+                        "jwtRefreshTokenExpiration",
+                        "sameSiteCookiePolicy"
+                    ]
+                }
+            }
+        },
+        "frontegg:index/WorkspaceBotDetectionEmail:WorkspaceBotDetectionEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceBruteForceProtectionEmail:WorkspaceBruteForceProtectionEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceBulkTenantsInvitesEmail:WorkspaceBulkTenantsInvitesEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceCaptchaPolicy:WorkspaceCaptchaPolicy": {
+            "properties": {
+                "ignoredEmails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Email addresses that should be exempt from CAPTCHA checks.\n"
+                },
+                "minScore": {
+                    "type": "number",
+                    "description": "The minimum CAPTCHA score to accept. Set to 0.0 to accept all scores.\n"
+                },
+                "secretKey": {
+                    "type": "string",
+                    "description": "The reCAPTCHA secret key to use.\n"
+                },
+                "siteKey": {
+                    "type": "string",
+                    "description": "The reCAPTCHA site key to use.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "minScore",
+                "secretKey",
+                "siteKey"
+            ]
+        },
+        "frontegg:index/WorkspaceEmailVerificationEmail:WorkspaceEmailVerificationEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceFacebookSocialLogin:WorkspaceFacebookSocialLogin": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "The client ID of the Facebook application to authenticate with. Required when setting **`customised`** parameter to true.\n"
+                },
+                "customised": {
+                    "type": "boolean",
+                    "description": "Determine whether the SSO should use customized secret and client ID. When passing true, clientId and secret are also required.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The URL to redirect to after a successful authentication.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The secret associated with the Facebook application. Required when setting **`customised`** parameter to true.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "redirectUrl"
+            ]
+        },
+        "frontegg:index/WorkspaceGithubSocialLogin:WorkspaceGithubSocialLogin": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "The client ID of the GitHub application to authenticate with. Required when setting **`customised`** parameter to true.\n"
+                },
+                "customised": {
+                    "type": "boolean",
+                    "description": "Determine whether the SSO should use customized secret and client ID. When passing true, clientId and secret are also required.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The URL to redirect to after a successful authentication.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The secret associated with the GitHub application. Required when setting **`customised`** parameter to true.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "redirectUrl"
+            ]
+        },
+        "frontegg:index/WorkspaceGoogleSocialLogin:WorkspaceGoogleSocialLogin": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "The client ID of the Google application to authenticate with. Required when setting **`customised`** parameter to true.\n"
+                },
+                "customised": {
+                    "type": "boolean",
+                    "description": "Determine whether the SSO should use customized secret and client ID. When passing true, clientId and secret are also required.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The URL to redirect to after a successful authentication.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The secret associated with the Google application. Required when setting **`customised`** parameter to true.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "redirectUrl"
+            ]
+        },
+        "frontegg:index/WorkspaceHostedLogin:WorkspaceHostedLogin": {
+            "properties": {
+                "allowedRedirectUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Allowed redirect URLs.\n"
+                }
+            },
+            "type": "object"
+        },
+        "frontegg:index/WorkspaceImpossibleTravelEmail:WorkspaceImpossibleTravelEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceLockoutPolicy:WorkspaceLockoutPolicy": {
+            "properties": {
+                "maxAttempts": {
+                    "type": "integer",
+                    "description": "The number of failed attempts after which a user will be locked out.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxAttempts"
+            ]
+        },
+        "frontegg:index/WorkspaceMagicCodeEmail:WorkspaceMagicCodeEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceMagicLinkEmail:WorkspaceMagicLinkEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceMfaAuthenticationApp:WorkspaceMfaAuthenticationApp": {
+            "properties": {
+                "serviceName": {
+                    "type": "string",
+                    "description": "The service name to display in the authentication app.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "serviceName"
+            ]
+        },
+        "frontegg:index/WorkspaceMfaEnrollEmail:WorkspaceMfaEnrollEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceMfaOtcEmail:WorkspaceMfaOtcEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceMfaPolicy:WorkspaceMfaPolicy": {
+            "properties": {
+                "allowRememberDevice": {
+                    "type": "boolean",
+                    "description": "Allow users to remember their MFA devices.\n"
+                },
+                "deviceExpiration": {
+                    "type": "integer",
+                    "description": "The number of seconds that MFA devices can be remembered for, if allow_remember_my_device is true.\n"
+                },
+                "enforce": {
+                    "type": "string",
+                    "description": "Whether to force use of MFA.\n\n\tMust be one of \"off\", \"on\", or \"unless-saml\".\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowRememberDevice",
+                "deviceExpiration",
+                "enforce"
+            ]
+        },
+        "frontegg:index/WorkspaceMfaRecoveryCodeEmail:WorkspaceMfaRecoveryCodeEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceMfaUnenrollEmail:WorkspaceMfaUnenrollEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceMicrosoftSocialLogin:WorkspaceMicrosoftSocialLogin": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "The client ID of the Microsoft application to authenticate with. Required when setting **`customised`** parameter to true.\n"
+                },
+                "customised": {
+                    "type": "boolean",
+                    "description": "Determine whether the SSO should use customized secret and client ID. When passing true, clientId and secret are also required.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The URL to redirect to after a successful authentication.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The secret associated with the Microsoft application. Required when setting **`customised`** parameter to true.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "redirectUrl"
+            ]
+        },
+        "frontegg:index/WorkspaceNewDeviceConnectedEmail:WorkspaceNewDeviceConnectedEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceNewMfaMethodEmail:WorkspaceNewMfaMethodEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceOidc:WorkspaceOidc": {
+            "properties": {
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The URL to redirect to after the OIDC exchange.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "redirectUrl"
+            ]
+        },
+        "frontegg:index/WorkspacePasswordPolicy:WorkspacePasswordPolicy": {
+            "properties": {
+                "allowPassphrases": {
+                    "type": "boolean"
+                },
+                "history": {
+                    "type": "integer",
+                    "description": "The number of historical passwords to prevent users from reusing. Set to zero to disable.\n"
+                },
+                "maxLength": {
+                    "type": "integer",
+                    "description": "The maximum length of a password.\n"
+                },
+                "minLength": {
+                    "type": "integer",
+                    "description": "The minimum length of a password.\n"
+                },
+                "minPhraseLength": {
+                    "type": "integer"
+                },
+                "minTests": {
+                    "type": "integer",
+                    "description": "The minimum number of strength tests the password must meet.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowPassphrases",
+                "history",
+                "maxLength",
+                "minLength",
+                "minPhraseLength",
+                "minTests"
+            ]
+        },
+        "frontegg:index/WorkspacePwnedPasswordEmail:WorkspacePwnedPasswordEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceRemoveMfaMethodEmail:WorkspaceRemoveMfaMethodEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceResetPasswordEmail:WorkspaceResetPasswordEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceResetPhoneNumberEmail:WorkspaceResetPhoneNumberEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceSaml:WorkspaceSaml": {
+            "properties": {
+                "acsUrl": {
+                    "type": "string",
+                    "description": "The ACS URL for the SAML authentication flow.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The URL to redirect to after the SAML exchange.\n"
+                },
+                "spEntityId": {
+                    "type": "string",
+                    "description": "The name of the service provider that will be displayed to users.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "acsUrl",
+                "spEntityId"
+            ]
+        },
+        "frontegg:index/WorkspaceSmsAuthenticationEnabledEmail:WorkspaceSmsAuthenticationEnabledEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceSsoDomainPolicy:WorkspaceSsoDomainPolicy": {
+            "properties": {
+                "allowVerifiedUsersToAddDomains": {
+                    "type": "boolean",
+                    "description": "Whether to allow users to add their own email domain without validating the domain through DNS.\n"
+                },
+                "bypassDomainCrossValidation": {
+                    "type": "boolean",
+                    "description": "Whether to allow users to sign in even via SSO even if the associated domain has not been validated through DNS.\n"
+                },
+                "skipDomainVerification": {
+                    "type": "boolean",
+                    "description": "Whether to automatically mark new SSO domains as validated, without validating the domain through DNS.\n"
+                }
+            },
+            "type": "object"
+        },
+        "frontegg:index/WorkspaceSsoMultiTenantPolicy:WorkspaceSsoMultiTenantPolicy": {
+            "properties": {
+                "unspecifiedTenantStrategy": {
+                    "type": "string",
+                    "description": "Strategy for logging in nonexisting users that match SSO configurations for multiple tenants when no tenant has been specified. Either BLOCK or FIRST_CREATED.\n"
+                },
+                "useActiveTenant": {
+                    "type": "boolean",
+                    "description": "Whether users with existing accounts that match SSO configurations for multiple tenants should be logged in using the SSO for their active (last logged into) account, or whether the unspecified tenant strategy should apply.\n"
+                }
+            },
+            "type": "object"
+        },
+        "frontegg:index/WorkspaceSuspiciousIpEmail:WorkspaceSuspiciousIpEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceUserActivationEmail:WorkspaceUserActivationEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceUserInvitationEmail:WorkspaceUserInvitationEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        },
+        "frontegg:index/WorkspaceUserUsedInvitationEmail:WorkspaceUserUsedInvitationEmail": {
+            "properties": {
+                "fromAddress": {
+                    "type": "string",
+                    "description": "The address to use in the \"From\" header of the email.\n"
+                },
+                "fromName": {
+                    "type": "string",
+                    "description": "The name to use in the \"From\" header of the email.\n"
+                },
+                "htmlTemplate": {
+                    "type": "string",
+                    "description": "The HTML template to use in the email.\n"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "The redirect URL to use, if applicable.\n\n    Access this value as \"\\{\\{redirectURL\\}\\}\" in the template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email.\n"
+                },
+                "successRedirectUrl": {
+                    "type": "string",
+                    "description": "The success redirect URL to use, if applicable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromAddress",
+                "fromName",
+                "htmlTemplate",
+                "subject"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the frontegg package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "apiBaseUrl": {
+                "type": "string",
+                "description": "The Frontegg api url. Override to change region. Defaults to EU url.\n"
+            },
+            "clientId": {
+                "type": "string",
+                "description": "The client ID for a Frontegg portal API key.\n"
+            },
+            "environmentId": {
+                "type": "string",
+                "description": "The client ID from environment settings.\n",
+                "secret": true
+            },
+            "portalBaseUrl": {
+                "type": "string",
+                "description": "The Frontegg portal url. Override to change region. Defaults to EU url.\n"
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "The corresponding secret key for the API key.\n",
+                "secret": true
+            }
+        },
+        "required": [
+            "clientId",
+            "secretKey"
+        ],
+        "inputProperties": {
+            "apiBaseUrl": {
+                "type": "string",
+                "description": "The Frontegg api url. Override to change region. Defaults to EU url.\n"
+            },
+            "clientId": {
+                "type": "string",
+                "description": "The client ID for a Frontegg portal API key.\n"
+            },
+            "environmentId": {
+                "type": "string",
+                "description": "The client ID from environment settings.\n",
+                "secret": true
+            },
+            "portalBaseUrl": {
+                "type": "string",
+                "description": "The Frontegg portal url. Override to change region. Defaults to EU url.\n"
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "The corresponding secret key for the API key.\n",
+                "secret": true
+            }
+        },
+        "requiredInputs": [
+            "clientId",
+            "secretKey"
+        ]
+    },
+    "resources": {
+        "frontegg:index/allowedOrigin:AllowedOrigin": {
+            "properties": {
+                "allowedOrigin": {
+                    "type": "string",
+                    "description": "The allowed origin URI.\n"
+                }
+            },
+            "required": [
+                "allowedOrigin"
+            ],
+            "inputProperties": {
+                "allowedOrigin": {
+                    "type": "string",
+                    "description": "The allowed origin URI.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "allowedOrigin"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AllowedOrigin resources.\n",
+                "properties": {
+                    "allowedOrigin": {
+                        "type": "string",
+                        "description": "The allowed origin URI.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/emailProvider:EmailProvider": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp at which the permission was created.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "Required for Mailgun (required only for Mailgun).\n"
+                },
+                "providerId": {
+                    "type": "string",
+                    "description": "Provider ID (required only for AWS SES).\n"
+                },
+                "providerName": {
+                    "type": "string",
+                    "description": "Name of the email provider (If the provider is changed, the old provider's configuration will be deleted).\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Required for AWS SES or Mailgun.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "A secret to be included with the event.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "The timestamp at which the permission was updated.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "providerName",
+                "secret",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "domain": {
+                    "type": "string",
+                    "description": "Required for Mailgun (required only for Mailgun).\n"
+                },
+                "providerId": {
+                    "type": "string",
+                    "description": "Provider ID (required only for AWS SES).\n"
+                },
+                "providerName": {
+                    "type": "string",
+                    "description": "Name of the email provider (If the provider is changed, the old provider's configuration will be deleted).\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Required for AWS SES or Mailgun.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "A secret to be included with the event.\n"
+                }
+            },
+            "requiredInputs": [
+                "providerName",
+                "secret"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmailProvider resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The timestamp at which the permission was created.\n"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "Required for Mailgun (required only for Mailgun).\n"
+                    },
+                    "providerId": {
+                        "type": "string",
+                        "description": "Provider ID (required only for AWS SES).\n"
+                    },
+                    "providerName": {
+                        "type": "string",
+                        "description": "Name of the email provider (If the provider is changed, the old provider's configuration will be deleted).\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Required for AWS SES or Mailgun.\n"
+                    },
+                    "secret": {
+                        "type": "string",
+                        "description": "A secret to be included with the event.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "The timestamp at which the permission was updated.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/permission:Permission": {
+            "properties": {
+                "categoryId": {
+                    "type": "string",
+                    "description": "The identifier of the category to which this permission belongs.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp at which the permission was created.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the permission.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A human-readable identifier for the permission.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the permission.\n"
+                }
+            },
+            "required": [
+                "categoryId",
+                "createdAt",
+                "description",
+                "key",
+                "name"
+            ],
+            "inputProperties": {
+                "categoryId": {
+                    "type": "string",
+                    "description": "The identifier of the category to which this permission belongs.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the permission.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A human-readable identifier for the permission.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the permission.\n"
+                }
+            },
+            "requiredInputs": [
+                "categoryId",
+                "description",
+                "key"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Permission resources.\n",
+                "properties": {
+                    "categoryId": {
+                        "type": "string",
+                        "description": "The identifier of the category to which this permission belongs.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The timestamp at which the permission was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A human-readable description of the permission.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A human-readable identifier for the permission.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the permission.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/permissionCategory:PermissionCategory": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp at which the permission category was created.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the permission category.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the permission category.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "description",
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the permission category.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the permission category.\n"
+                }
+            },
+            "requiredInputs": [
+                "description"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PermissionCategory resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The timestamp at which the permission category was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A human-readable description of the permission category.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the permission category.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/redirectUri:RedirectUri": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The redirect URI key.\n"
+                },
+                "redirectUri": {
+                    "type": "string",
+                    "description": "The redirect URI.\n"
+                }
+            },
+            "required": [
+                "key",
+                "redirectUri"
+            ],
+            "inputProperties": {
+                "redirectUri": {
+                    "type": "string",
+                    "description": "The redirect URI.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "redirectUri"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RedirectUri resources.\n",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "The redirect URI key.\n"
+                    },
+                    "redirectUri": {
+                        "type": "string",
+                        "description": "The redirect URI.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/role:Role": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp at which the role was created.\n"
+                },
+                "default": {
+                    "type": "boolean",
+                    "description": "Whether the role should be applied to new users by default.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the role.\n"
+                },
+                "firstUser": {
+                    "type": "boolean",
+                    "description": "Whether the role should be applied to the first user in the tenant (new tenants only).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A human-readable identifier for the role.\n"
+                },
+                "level": {
+                    "type": "integer",
+                    "description": "The level of the role in the role hierarchy.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the role.\n"
+                },
+                "permissionIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of the permissions that the role confers to its members.\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "The ID of the tenant that owns the role.\n"
+                },
+                "vendorId": {
+                    "type": "string",
+                    "description": "The ID of the vendor that owns the role.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "default",
+                "description",
+                "key",
+                "level",
+                "name",
+                "permissionIds",
+                "vendorId"
+            ],
+            "inputProperties": {
+                "default": {
+                    "type": "boolean",
+                    "description": "Whether the role should be applied to new users by default.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the role.\n"
+                },
+                "firstUser": {
+                    "type": "boolean",
+                    "description": "Whether the role should be applied to the first user in the tenant (new tenants only).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A human-readable identifier for the role.\n"
+                },
+                "level": {
+                    "type": "integer",
+                    "description": "The level of the role in the role hierarchy.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the role.\n"
+                },
+                "permissionIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of the permissions that the role confers to its members.\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "The ID of the tenant that owns the role.\n"
+                }
+            },
+            "requiredInputs": [
+                "default",
+                "description",
+                "key",
+                "level",
+                "permissionIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Role resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The timestamp at which the role was created.\n"
+                    },
+                    "default": {
+                        "type": "boolean",
+                        "description": "Whether the role should be applied to new users by default.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A human-readable description of the role.\n"
+                    },
+                    "firstUser": {
+                        "type": "boolean",
+                        "description": "Whether the role should be applied to the first user in the tenant (new tenants only).\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A human-readable identifier for the role.\n"
+                    },
+                    "level": {
+                        "type": "integer",
+                        "description": "The level of the role in the role hierarchy.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the role.\n"
+                    },
+                    "permissionIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The IDs of the permissions that the role confers to its members.\n"
+                    },
+                    "tenantId": {
+                        "type": "string",
+                        "description": "The ID of the tenant that owns the role.\n"
+                    },
+                    "vendorId": {
+                        "type": "string",
+                        "description": "The ID of the vendor that owns the role.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/tenant:Tenant": {
+            "properties": {
+                "applicationUri": {
+                    "type": "string",
+                    "description": "The application URI for this tenant.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A human-readable identifier for the tenant.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the tenant.\n"
+                },
+                "selectedMetadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "key",
+                "name"
+            ],
+            "inputProperties": {
+                "applicationUri": {
+                    "type": "string",
+                    "description": "The application URI for this tenant.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A human-readable identifier for the tenant.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the tenant.\n"
+                },
+                "selectedMetadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "key"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Tenant resources.\n",
+                "properties": {
+                    "applicationUri": {
+                        "type": "string",
+                        "description": "The application URI for this tenant.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A human-readable identifier for the tenant.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the tenant.\n"
+                    },
+                    "selectedMetadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/user:User": {
+            "properties": {
+                "automaticallyVerify": {
+                    "type": "boolean",
+                    "description": "Whether the user gets verified upon creation.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The user's email address.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The user's login password.\n",
+                    "secret": true
+                },
+                "roleIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the role IDs that the user has in the tenant\n"
+                },
+                "skipInviteEmail": {
+                    "type": "boolean",
+                    "description": "Skip sending the invite email. If true, user is automatically verified on creation.\n"
+                },
+                "superuser": {
+                    "type": "boolean",
+                    "description": "Whether the user is a super user.\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "The tenant ID for this user.\n"
+                }
+            },
+            "required": [
+                "email",
+                "roleIds",
+                "tenantId"
+            ],
+            "inputProperties": {
+                "automaticallyVerify": {
+                    "type": "boolean",
+                    "description": "Whether the user gets verified upon creation.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The user's email address.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The user's login password.\n",
+                    "secret": true
+                },
+                "roleIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the role IDs that the user has in the tenant\n"
+                },
+                "skipInviteEmail": {
+                    "type": "boolean",
+                    "description": "Skip sending the invite email. If true, user is automatically verified on creation.\n"
+                },
+                "superuser": {
+                    "type": "boolean",
+                    "description": "Whether the user is a super user.\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "The tenant ID for this user.\n"
+                }
+            },
+            "requiredInputs": [
+                "email",
+                "roleIds",
+                "tenantId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "automaticallyVerify": {
+                        "type": "boolean",
+                        "description": "Whether the user gets verified upon creation.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The user's email address.\n"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The user's login password.\n",
+                        "secret": true
+                    },
+                    "roleIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of the role IDs that the user has in the tenant\n"
+                    },
+                    "skipInviteEmail": {
+                        "type": "boolean",
+                        "description": "Skip sending the invite email. If true, user is automatically verified on creation.\n"
+                    },
+                    "superuser": {
+                        "type": "boolean",
+                        "description": "Whether the user is a super user.\n"
+                    },
+                    "tenantId": {
+                        "type": "string",
+                        "description": "The tenant ID for this user.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/webhook:Webhook": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp at which the webhook was created.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the webhook.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the webhook is enabled.\n"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the events to subscribe to.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the webhook.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "A secret to include with the event.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the webhook.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to send events to.\n"
+                },
+                "vendorId": {
+                    "type": "string",
+                    "description": "The ID of the vendor that owns the webhook.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "description",
+                "enabled",
+                "events",
+                "name",
+                "secret",
+                "type",
+                "url",
+                "vendorId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the webhook.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the webhook is enabled.\n"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the events to subscribe to.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the webhook.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "A secret to include with the event.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to send events to.\n"
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "enabled",
+                "events",
+                "secret",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Webhook resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The timestamp at which the webhook was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A human-readable description of the webhook.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the webhook is enabled.\n"
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The names of the events to subscribe to.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the webhook.\n"
+                    },
+                    "secret": {
+                        "type": "string",
+                        "description": "A secret to include with the event.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the webhook.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to send events to.\n"
+                    },
+                    "vendorId": {
+                        "type": "string",
+                        "description": "The ID of the vendor that owns the webhook.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "frontegg:index/workspace:Workspace": {
+            "properties": {
+                "adminPortal": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAdminPortal:WorkspaceAdminPortal",
+                    "description": "Configures the admin portal.\n"
+                },
+                "allowedOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The origins that are allowed to access the workspace. This parameter controls the value of the \"Origin\" header for API\nresponses.\n"
+                },
+                "authPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAuthPolicy:WorkspaceAuthPolicy",
+                    "description": "Configures the general authentication policy.\n"
+                },
+                "backendStack": {
+                    "type": "string",
+                    "description": "The backend stack of the application associated with the workspace.\n"
+                },
+                "botDetectionEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceBotDetectionEmail:WorkspaceBotDetectionEmail",
+                    "description": "Configures the bot detection email.\n"
+                },
+                "bruteForceProtectionEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceBruteForceProtectionEmail:WorkspaceBruteForceProtectionEmail",
+                    "description": "Configures the brute force protection email.\n"
+                },
+                "bulkTenantsInvitesEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceBulkTenantsInvitesEmail:WorkspaceBulkTenantsInvitesEmail",
+                    "description": "Configures the bulk tenants invite email.\n"
+                },
+                "captchaPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceCaptchaPolicy:WorkspaceCaptchaPolicy",
+                    "description": "Configures the CAPTCHA policy in the signup form.\n"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "The country associated with the workspace.\n"
+                },
+                "customDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of custom domains at which Frontegg services will be reachable. You must configure CNAME for each domain, you can\nget record values from the portal.\n"
+                },
+                "emailVerificationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceEmailVerificationEmail:WorkspaceEmailVerificationEmail",
+                    "description": "Configures the verification email.\n"
+                },
+                "facebookSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceFacebookSocialLogin:WorkspaceFacebookSocialLogin",
+                    "description": "Configures social login with Facebook.\n"
+                },
+                "fronteggDomain": {
+                    "type": "string",
+                    "description": "The domain at which the Frontegg API is served for this workspace. The domain must end with \".frontegg.com\" or\n\".us.frontegg.com\".\n"
+                },
+                "frontendStack": {
+                    "type": "string",
+                    "description": "The frontend stack of the application associated with the worksapce.\n"
+                },
+                "githubSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceGithubSocialLogin:WorkspaceGithubSocialLogin",
+                    "description": "Configures social login with GitHub.\n"
+                },
+                "googleSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceGoogleSocialLogin:WorkspaceGoogleSocialLogin",
+                    "description": "Configures social login with Google.\n"
+                },
+                "hostedLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceHostedLogin:WorkspaceHostedLogin",
+                    "description": "Configures Frontegg-hosted OAuth login.\n"
+                },
+                "impossibleTravelEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceImpossibleTravelEmail:WorkspaceImpossibleTravelEmail",
+                    "description": "Configures the impossible travel email.\n"
+                },
+                "lockoutPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceLockoutPolicy:WorkspaceLockoutPolicy",
+                    "description": "Configures the user lockout policy.\n"
+                },
+                "magicCodeEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMagicCodeEmail:WorkspaceMagicCodeEmail",
+                    "description": "Configures the one time code email.\n"
+                },
+                "magicLinkEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMagicLinkEmail:WorkspaceMagicLinkEmail",
+                    "description": "Configures the magic link email.\n"
+                },
+                "mfaAuthenticationApp": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaAuthenticationApp:WorkspaceMfaAuthenticationApp",
+                    "description": "Configures the multi-factor authentication (MFA) via an authentication app.\n"
+                },
+                "mfaEnrollEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaEnrollEmail:WorkspaceMfaEnrollEmail",
+                    "description": "Configures the MFA enroll email.\n"
+                },
+                "mfaOtcEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaOtcEmail:WorkspaceMfaOtcEmail",
+                    "description": "Configures the account challenge with code email.\n"
+                },
+                "mfaPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaPolicy:WorkspaceMfaPolicy",
+                    "description": "Configures the multi-factor authentication (MFA) policy.\n"
+                },
+                "mfaRecoveryCodeEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaRecoveryCodeEmail:WorkspaceMfaRecoveryCodeEmail",
+                    "description": "Configures the MFA recovery code email.\n"
+                },
+                "mfaUnenrollEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaUnenrollEmail:WorkspaceMfaUnenrollEmail",
+                    "description": "Configures the MFA unenroll email.\n"
+                },
+                "microsoftSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMicrosoftSocialLogin:WorkspaceMicrosoftSocialLogin",
+                    "description": "Configures social login with Google.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the workspace.\n"
+                },
+                "newDeviceConnectedEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceNewDeviceConnectedEmail:WorkspaceNewDeviceConnectedEmail",
+                    "description": "Configures the new device connected email.\n"
+                },
+                "newMfaMethodEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceNewMfaMethodEmail:WorkspaceNewMfaMethodEmail",
+                    "description": "Configures the new MFA method email.\n"
+                },
+                "oidc": {
+                    "$ref": "#/types/frontegg:index/WorkspaceOidc:WorkspaceOidc",
+                    "description": "Configures SSO via OIDC.\n"
+                },
+                "openSaasInstalled": {
+                    "type": "boolean",
+                    "description": "Whether the application associated with the workspace has OpenSaaS installed.\n"
+                },
+                "passwordPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspacePasswordPolicy:WorkspacePasswordPolicy",
+                    "description": "Configures the password policy.\n"
+                },
+                "pwnedPasswordEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspacePwnedPasswordEmail:WorkspacePwnedPasswordEmail",
+                    "description": "Configures the pwned password email.\n"
+                },
+                "removeMfaMethodEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceRemoveMfaMethodEmail:WorkspaceRemoveMfaMethodEmail",
+                    "description": "Configures the remove MFA method email.\n"
+                },
+                "resetPasswordEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceResetPasswordEmail:WorkspaceResetPasswordEmail",
+                    "description": "Configures the password reset email.\n"
+                },
+                "resetPhoneNumberEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceResetPhoneNumberEmail:WorkspaceResetPhoneNumberEmail",
+                    "description": "Configures the reset phone number email.\n"
+                },
+                "saml": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSaml:WorkspaceSaml",
+                    "description": "Configures SSO via SAML.\n"
+                },
+                "smsAuthenticationEnabledEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSmsAuthenticationEnabledEmail:WorkspaceSmsAuthenticationEnabledEmail",
+                    "description": "Configures the SMS authentication enabled email.\n"
+                },
+                "ssoDomainPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSsoDomainPolicy:WorkspaceSsoDomainPolicy",
+                    "description": "Configures how SSO domains are validated.\n"
+                },
+                "ssoMultiTenantPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSsoMultiTenantPolicy:WorkspaceSsoMultiTenantPolicy",
+                    "description": "Configures how multiple tenants can claim the same SSO domain.\n"
+                },
+                "suspiciousIpEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSuspiciousIpEmail:WorkspaceSuspiciousIpEmail",
+                    "description": "Configures the suspicious IP email.\n"
+                },
+                "userActivationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceUserActivationEmail:WorkspaceUserActivationEmail",
+                    "description": "Configures the user activation email.\n"
+                },
+                "userInvitationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceUserInvitationEmail:WorkspaceUserInvitationEmail",
+                    "description": "Configures the user invitation email.\n"
+                },
+                "userUsedInvitationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceUserUsedInvitationEmail:WorkspaceUserUsedInvitationEmail",
+                    "description": "Configures the user used invitation email.\n"
+                }
+            },
+            "required": [
+                "adminPortal",
+                "allowedOrigins",
+                "authPolicy",
+                "backendStack",
+                "country",
+                "fronteggDomain",
+                "frontendStack",
+                "mfaPolicy",
+                "name",
+                "openSaasInstalled",
+                "passwordPolicy"
+            ],
+            "inputProperties": {
+                "adminPortal": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAdminPortal:WorkspaceAdminPortal",
+                    "description": "Configures the admin portal.\n"
+                },
+                "allowedOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The origins that are allowed to access the workspace. This parameter controls the value of the \"Origin\" header for API\nresponses.\n"
+                },
+                "authPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceAuthPolicy:WorkspaceAuthPolicy",
+                    "description": "Configures the general authentication policy.\n"
+                },
+                "backendStack": {
+                    "type": "string",
+                    "description": "The backend stack of the application associated with the workspace.\n"
+                },
+                "botDetectionEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceBotDetectionEmail:WorkspaceBotDetectionEmail",
+                    "description": "Configures the bot detection email.\n"
+                },
+                "bruteForceProtectionEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceBruteForceProtectionEmail:WorkspaceBruteForceProtectionEmail",
+                    "description": "Configures the brute force protection email.\n"
+                },
+                "bulkTenantsInvitesEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceBulkTenantsInvitesEmail:WorkspaceBulkTenantsInvitesEmail",
+                    "description": "Configures the bulk tenants invite email.\n"
+                },
+                "captchaPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceCaptchaPolicy:WorkspaceCaptchaPolicy",
+                    "description": "Configures the CAPTCHA policy in the signup form.\n"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "The country associated with the workspace.\n"
+                },
+                "customDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of custom domains at which Frontegg services will be reachable. You must configure CNAME for each domain, you can\nget record values from the portal.\n"
+                },
+                "emailVerificationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceEmailVerificationEmail:WorkspaceEmailVerificationEmail",
+                    "description": "Configures the verification email.\n"
+                },
+                "facebookSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceFacebookSocialLogin:WorkspaceFacebookSocialLogin",
+                    "description": "Configures social login with Facebook.\n"
+                },
+                "fronteggDomain": {
+                    "type": "string",
+                    "description": "The domain at which the Frontegg API is served for this workspace. The domain must end with \".frontegg.com\" or\n\".us.frontegg.com\".\n"
+                },
+                "frontendStack": {
+                    "type": "string",
+                    "description": "The frontend stack of the application associated with the worksapce.\n"
+                },
+                "githubSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceGithubSocialLogin:WorkspaceGithubSocialLogin",
+                    "description": "Configures social login with GitHub.\n"
+                },
+                "googleSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceGoogleSocialLogin:WorkspaceGoogleSocialLogin",
+                    "description": "Configures social login with Google.\n"
+                },
+                "hostedLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceHostedLogin:WorkspaceHostedLogin",
+                    "description": "Configures Frontegg-hosted OAuth login.\n"
+                },
+                "impossibleTravelEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceImpossibleTravelEmail:WorkspaceImpossibleTravelEmail",
+                    "description": "Configures the impossible travel email.\n"
+                },
+                "lockoutPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceLockoutPolicy:WorkspaceLockoutPolicy",
+                    "description": "Configures the user lockout policy.\n"
+                },
+                "magicCodeEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMagicCodeEmail:WorkspaceMagicCodeEmail",
+                    "description": "Configures the one time code email.\n"
+                },
+                "magicLinkEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMagicLinkEmail:WorkspaceMagicLinkEmail",
+                    "description": "Configures the magic link email.\n"
+                },
+                "mfaAuthenticationApp": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaAuthenticationApp:WorkspaceMfaAuthenticationApp",
+                    "description": "Configures the multi-factor authentication (MFA) via an authentication app.\n"
+                },
+                "mfaEnrollEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaEnrollEmail:WorkspaceMfaEnrollEmail",
+                    "description": "Configures the MFA enroll email.\n"
+                },
+                "mfaOtcEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaOtcEmail:WorkspaceMfaOtcEmail",
+                    "description": "Configures the account challenge with code email.\n"
+                },
+                "mfaPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaPolicy:WorkspaceMfaPolicy",
+                    "description": "Configures the multi-factor authentication (MFA) policy.\n"
+                },
+                "mfaRecoveryCodeEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaRecoveryCodeEmail:WorkspaceMfaRecoveryCodeEmail",
+                    "description": "Configures the MFA recovery code email.\n"
+                },
+                "mfaUnenrollEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMfaUnenrollEmail:WorkspaceMfaUnenrollEmail",
+                    "description": "Configures the MFA unenroll email.\n"
+                },
+                "microsoftSocialLogin": {
+                    "$ref": "#/types/frontegg:index/WorkspaceMicrosoftSocialLogin:WorkspaceMicrosoftSocialLogin",
+                    "description": "Configures social login with Google.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the workspace.\n"
+                },
+                "newDeviceConnectedEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceNewDeviceConnectedEmail:WorkspaceNewDeviceConnectedEmail",
+                    "description": "Configures the new device connected email.\n"
+                },
+                "newMfaMethodEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceNewMfaMethodEmail:WorkspaceNewMfaMethodEmail",
+                    "description": "Configures the new MFA method email.\n"
+                },
+                "oidc": {
+                    "$ref": "#/types/frontegg:index/WorkspaceOidc:WorkspaceOidc",
+                    "description": "Configures SSO via OIDC.\n"
+                },
+                "openSaasInstalled": {
+                    "type": "boolean",
+                    "description": "Whether the application associated with the workspace has OpenSaaS installed.\n"
+                },
+                "passwordPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspacePasswordPolicy:WorkspacePasswordPolicy",
+                    "description": "Configures the password policy.\n"
+                },
+                "pwnedPasswordEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspacePwnedPasswordEmail:WorkspacePwnedPasswordEmail",
+                    "description": "Configures the pwned password email.\n"
+                },
+                "removeMfaMethodEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceRemoveMfaMethodEmail:WorkspaceRemoveMfaMethodEmail",
+                    "description": "Configures the remove MFA method email.\n"
+                },
+                "resetPasswordEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceResetPasswordEmail:WorkspaceResetPasswordEmail",
+                    "description": "Configures the password reset email.\n"
+                },
+                "resetPhoneNumberEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceResetPhoneNumberEmail:WorkspaceResetPhoneNumberEmail",
+                    "description": "Configures the reset phone number email.\n"
+                },
+                "saml": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSaml:WorkspaceSaml",
+                    "description": "Configures SSO via SAML.\n"
+                },
+                "smsAuthenticationEnabledEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSmsAuthenticationEnabledEmail:WorkspaceSmsAuthenticationEnabledEmail",
+                    "description": "Configures the SMS authentication enabled email.\n"
+                },
+                "ssoDomainPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSsoDomainPolicy:WorkspaceSsoDomainPolicy",
+                    "description": "Configures how SSO domains are validated.\n"
+                },
+                "ssoMultiTenantPolicy": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSsoMultiTenantPolicy:WorkspaceSsoMultiTenantPolicy",
+                    "description": "Configures how multiple tenants can claim the same SSO domain.\n"
+                },
+                "suspiciousIpEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceSuspiciousIpEmail:WorkspaceSuspiciousIpEmail",
+                    "description": "Configures the suspicious IP email.\n"
+                },
+                "userActivationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceUserActivationEmail:WorkspaceUserActivationEmail",
+                    "description": "Configures the user activation email.\n"
+                },
+                "userInvitationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceUserInvitationEmail:WorkspaceUserInvitationEmail",
+                    "description": "Configures the user invitation email.\n"
+                },
+                "userUsedInvitationEmail": {
+                    "$ref": "#/types/frontegg:index/WorkspaceUserUsedInvitationEmail:WorkspaceUserUsedInvitationEmail",
+                    "description": "Configures the user used invitation email.\n"
+                }
+            },
+            "requiredInputs": [
+                "adminPortal",
+                "allowedOrigins",
+                "authPolicy",
+                "backendStack",
+                "country",
+                "fronteggDomain",
+                "frontendStack",
+                "mfaPolicy",
+                "openSaasInstalled",
+                "passwordPolicy"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Workspace resources.\n",
+                "properties": {
+                    "adminPortal": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAdminPortal:WorkspaceAdminPortal",
+                        "description": "Configures the admin portal.\n"
+                    },
+                    "allowedOrigins": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The origins that are allowed to access the workspace. This parameter controls the value of the \"Origin\" header for API\nresponses.\n"
+                    },
+                    "authPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspaceAuthPolicy:WorkspaceAuthPolicy",
+                        "description": "Configures the general authentication policy.\n"
+                    },
+                    "backendStack": {
+                        "type": "string",
+                        "description": "The backend stack of the application associated with the workspace.\n"
+                    },
+                    "botDetectionEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceBotDetectionEmail:WorkspaceBotDetectionEmail",
+                        "description": "Configures the bot detection email.\n"
+                    },
+                    "bruteForceProtectionEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceBruteForceProtectionEmail:WorkspaceBruteForceProtectionEmail",
+                        "description": "Configures the brute force protection email.\n"
+                    },
+                    "bulkTenantsInvitesEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceBulkTenantsInvitesEmail:WorkspaceBulkTenantsInvitesEmail",
+                        "description": "Configures the bulk tenants invite email.\n"
+                    },
+                    "captchaPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspaceCaptchaPolicy:WorkspaceCaptchaPolicy",
+                        "description": "Configures the CAPTCHA policy in the signup form.\n"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "The country associated with the workspace.\n"
+                    },
+                    "customDomains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of custom domains at which Frontegg services will be reachable. You must configure CNAME for each domain, you can\nget record values from the portal.\n"
+                    },
+                    "emailVerificationEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceEmailVerificationEmail:WorkspaceEmailVerificationEmail",
+                        "description": "Configures the verification email.\n"
+                    },
+                    "facebookSocialLogin": {
+                        "$ref": "#/types/frontegg:index/WorkspaceFacebookSocialLogin:WorkspaceFacebookSocialLogin",
+                        "description": "Configures social login with Facebook.\n"
+                    },
+                    "fronteggDomain": {
+                        "type": "string",
+                        "description": "The domain at which the Frontegg API is served for this workspace. The domain must end with \".frontegg.com\" or\n\".us.frontegg.com\".\n"
+                    },
+                    "frontendStack": {
+                        "type": "string",
+                        "description": "The frontend stack of the application associated with the worksapce.\n"
+                    },
+                    "githubSocialLogin": {
+                        "$ref": "#/types/frontegg:index/WorkspaceGithubSocialLogin:WorkspaceGithubSocialLogin",
+                        "description": "Configures social login with GitHub.\n"
+                    },
+                    "googleSocialLogin": {
+                        "$ref": "#/types/frontegg:index/WorkspaceGoogleSocialLogin:WorkspaceGoogleSocialLogin",
+                        "description": "Configures social login with Google.\n"
+                    },
+                    "hostedLogin": {
+                        "$ref": "#/types/frontegg:index/WorkspaceHostedLogin:WorkspaceHostedLogin",
+                        "description": "Configures Frontegg-hosted OAuth login.\n"
+                    },
+                    "impossibleTravelEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceImpossibleTravelEmail:WorkspaceImpossibleTravelEmail",
+                        "description": "Configures the impossible travel email.\n"
+                    },
+                    "lockoutPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspaceLockoutPolicy:WorkspaceLockoutPolicy",
+                        "description": "Configures the user lockout policy.\n"
+                    },
+                    "magicCodeEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMagicCodeEmail:WorkspaceMagicCodeEmail",
+                        "description": "Configures the one time code email.\n"
+                    },
+                    "magicLinkEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMagicLinkEmail:WorkspaceMagicLinkEmail",
+                        "description": "Configures the magic link email.\n"
+                    },
+                    "mfaAuthenticationApp": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMfaAuthenticationApp:WorkspaceMfaAuthenticationApp",
+                        "description": "Configures the multi-factor authentication (MFA) via an authentication app.\n"
+                    },
+                    "mfaEnrollEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMfaEnrollEmail:WorkspaceMfaEnrollEmail",
+                        "description": "Configures the MFA enroll email.\n"
+                    },
+                    "mfaOtcEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMfaOtcEmail:WorkspaceMfaOtcEmail",
+                        "description": "Configures the account challenge with code email.\n"
+                    },
+                    "mfaPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMfaPolicy:WorkspaceMfaPolicy",
+                        "description": "Configures the multi-factor authentication (MFA) policy.\n"
+                    },
+                    "mfaRecoveryCodeEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMfaRecoveryCodeEmail:WorkspaceMfaRecoveryCodeEmail",
+                        "description": "Configures the MFA recovery code email.\n"
+                    },
+                    "mfaUnenrollEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMfaUnenrollEmail:WorkspaceMfaUnenrollEmail",
+                        "description": "Configures the MFA unenroll email.\n"
+                    },
+                    "microsoftSocialLogin": {
+                        "$ref": "#/types/frontegg:index/WorkspaceMicrosoftSocialLogin:WorkspaceMicrosoftSocialLogin",
+                        "description": "Configures social login with Google.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the workspace.\n"
+                    },
+                    "newDeviceConnectedEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceNewDeviceConnectedEmail:WorkspaceNewDeviceConnectedEmail",
+                        "description": "Configures the new device connected email.\n"
+                    },
+                    "newMfaMethodEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceNewMfaMethodEmail:WorkspaceNewMfaMethodEmail",
+                        "description": "Configures the new MFA method email.\n"
+                    },
+                    "oidc": {
+                        "$ref": "#/types/frontegg:index/WorkspaceOidc:WorkspaceOidc",
+                        "description": "Configures SSO via OIDC.\n"
+                    },
+                    "openSaasInstalled": {
+                        "type": "boolean",
+                        "description": "Whether the application associated with the workspace has OpenSaaS installed.\n"
+                    },
+                    "passwordPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspacePasswordPolicy:WorkspacePasswordPolicy",
+                        "description": "Configures the password policy.\n"
+                    },
+                    "pwnedPasswordEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspacePwnedPasswordEmail:WorkspacePwnedPasswordEmail",
+                        "description": "Configures the pwned password email.\n"
+                    },
+                    "removeMfaMethodEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceRemoveMfaMethodEmail:WorkspaceRemoveMfaMethodEmail",
+                        "description": "Configures the remove MFA method email.\n"
+                    },
+                    "resetPasswordEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceResetPasswordEmail:WorkspaceResetPasswordEmail",
+                        "description": "Configures the password reset email.\n"
+                    },
+                    "resetPhoneNumberEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceResetPhoneNumberEmail:WorkspaceResetPhoneNumberEmail",
+                        "description": "Configures the reset phone number email.\n"
+                    },
+                    "saml": {
+                        "$ref": "#/types/frontegg:index/WorkspaceSaml:WorkspaceSaml",
+                        "description": "Configures SSO via SAML.\n"
+                    },
+                    "smsAuthenticationEnabledEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceSmsAuthenticationEnabledEmail:WorkspaceSmsAuthenticationEnabledEmail",
+                        "description": "Configures the SMS authentication enabled email.\n"
+                    },
+                    "ssoDomainPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspaceSsoDomainPolicy:WorkspaceSsoDomainPolicy",
+                        "description": "Configures how SSO domains are validated.\n"
+                    },
+                    "ssoMultiTenantPolicy": {
+                        "$ref": "#/types/frontegg:index/WorkspaceSsoMultiTenantPolicy:WorkspaceSsoMultiTenantPolicy",
+                        "description": "Configures how multiple tenants can claim the same SSO domain.\n"
+                    },
+                    "suspiciousIpEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceSuspiciousIpEmail:WorkspaceSuspiciousIpEmail",
+                        "description": "Configures the suspicious IP email.\n"
+                    },
+                    "userActivationEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceUserActivationEmail:WorkspaceUserActivationEmail",
+                        "description": "Configures the user activation email.\n"
+                    },
+                    "userInvitationEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceUserInvitationEmail:WorkspaceUserInvitationEmail",
+                        "description": "Configures the user invitation email.\n"
+                    },
+                    "userUsedInvitationEmail": {
+                        "$ref": "#/types/frontegg:index/WorkspaceUserUsedInvitationEmail:WorkspaceUserUsedInvitationEmail",
+                        "description": "Configures the user used invitation email.\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "frontegg:index/getPermission:getPermission": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getPermission.\n",
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPermission.\n",
+                "properties": {
+                    "categoryId": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "categoryId",
+                    "createdAt",
+                    "description",
+                    "key",
+                    "name",
+                    "id"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}

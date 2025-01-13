@@ -1,14 +1,14 @@
 # REQUIRED: provider is the name of the provider without the pulumi-prefix e.g. "aws".
-provider: xyz
+provider: frontegg
 
 # The name of the GitHub organization or username the repository lives in. Defaults to 'pulumi'
-organization: pulumi
+organization: HighTideCRM
 
 # The external template only includes workflows relevant for non-Pulumi managed providers.
 template: external-bridged-provider
 
 # The name of the GitHub organisation or username where the upstream terraform provider lives.
-upstreamProviderOrg: pulumi
+upstreamProviderOrg: frontegg
 
 # major version of the current provider - used in make files
 # This should always be set by all providers as this is key to go module paths.
@@ -39,7 +39,7 @@ languages:
 
 # Disable Java publishing and pushing the provider binary to the CDN as these only work internally within Pulumi.
 publish:
-  sdk: "all,!java"
+  sdk: "nodejs"
   cdn: false
 
 # Enables automatic generation of basic docs pages for the registry.
@@ -50,3 +50,29 @@ publishRegistry: false
 
 # For additional options, please refer to the defaults set in ci-mgmt:
 # https://github.com/pulumi/ci-mgmt/blob/master/provider-ci/internal/pkg/templates/defaults.config.yaml
+env:
+  # Use custom token so we've got full access to GitHub
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # Used by pulumi-package-publisher
+  NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+  # Appears obsolete - was used by old ci-scripts
+  NPM_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+  # Used by pulumi-package-publisher
+  NUGET_PUBLISH_KEY: ""
+  # Used indirectly by gradle in pulumi-package-publisher?
+  PUBLISH_REPO_PASSWORD: ""
+  PUBLISH_REPO_USERNAME: ""
+  # Used to access staging API for tests
+  PULUMI_ACCESS_TOKEN: ""
+  PULUMI_API: ""
+  # Allows tests to resolve the local SDK - should be set in test setup or makefile instead
+  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
+  # Should be set in test setup or makefile instead
+  PULUMI_LOCAL_NUGET: ""
+  # Used by pulumi-package-publisher
+  PYPI_USERNAME: __token__
+  PYPI_PASSWORD: ""
+  # Used indirectly by Java publishing in pulumi-package-publisher?
+  SIGNING_KEY: ""
+  SIGNING_KEY_ID: ""
+  SIGNING_PASSWORD: ""

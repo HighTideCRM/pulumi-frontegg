@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/provider
+module github.com/HighTideCRM/pulumi-frontegg/provider
 
 go 1.22.7
 
@@ -7,9 +7,9 @@ toolchain go1.23.0
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 
 require (
+	github.com/frontegg/terraform-provider-frontegg v1.0.6
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.100.0
 	github.com/pulumi/pulumi/pkg/v3 v3.145.0
-	github.com/pulumi/terraform-provider-xyz v0.0.3
 )
 
 require (

@@ -22,20 +22,20 @@ on:
 env:
   IS_PRERELEASE: ${{ inputs.isPrerelease }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-  PULUMI_API: https://api.pulumi-staging.io
+  NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+  NPM_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+  NUGET_PUBLISH_KEY: ""
+  PUBLISH_REPO_PASSWORD: ""
+  PUBLISH_REPO_USERNAME: ""
+  PULUMI_ACCESS_TOKEN: ""
+  PULUMI_API: ""
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+  PULUMI_LOCAL_NUGET: ""
+  PYPI_PASSWORD: ""
   PYPI_USERNAME: __token__
-  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
-  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
-  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
+  SIGNING_KEY: ""
+  SIGNING_KEY_ID: ""
+  SIGNING_PASSWORD: ""
   TF_APPEND_USER_AGENT: pulumi
 
 jobs:
@@ -62,23 +62,23 @@ jobs:
     - name: Download provider assets
       uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
       with:
-        pattern: pulumi-resource-xyz-v${{ inputs.version }}-*
+        pattern: pulumi-resource-frontegg-v${{ inputs.version }}-*
         path: dist
         # Don't create a directory for each artifact
         merge-multiple: true
     - name: Calculate checksums
       working-directory: dist
-      run: shasum ./*.tar.gz > "pulumi-xyz_${{ inputs.version }}_checksums.txt"
+      run: shasum ./*.tar.gz > "pulumi-frontegg_${{ inputs.version }}_checksums.txt"
     - name: Get Schema Change Summary
       id: schema-summary
       shell: bash
       run: |
         # Get latest stable release. Return only first column from result (tag).
-        LAST_VERSION=$(gh release view --repo pulumi/pulumi-xyz --json tagName -q .tagName || echo "No stable release" )
+        LAST_VERSION=$(gh release view --repo HighTideCRM/pulumi-frontegg --json tagName -q .tagName || echo "No stable release" )
         {
           echo 'summary<<EOF'
           if [[ "$LAST_VERSION" != "No stable release" ]]; then
-            schema-tools compare --provider="xyz" --old-commit="$LAST_VERSION" --repository="github://api.github.com/pulumi" --new-commit="--local-path=provider/cmd/pulumi-resource-xyz/schema.json"
+            schema-tools compare --provider="frontegg" --old-commit="$LAST_VERSION" --repository="github://api.github.com/HighTideCRM" --new-commit="--local-path=provider/cmd/pulumi-resource-frontegg/schema.json"
           fi
           echo 'EOF'
         } >> "$GITHUB_OUTPUT"
@@ -116,13 +116,13 @@ jobs:
       if: inputs.skipJavaSdk == false
       uses: pulumi/pulumi-package-publisher@696a0fe98f86d86ada2a842d1859f3e8c40d6cd7 # v0.0.21
       with:
-        sdk: all,!java
+        sdk: nodejs
         version: ${{ inputs.version }}
     - name: Publish SDKs (except Java)
       if: inputs.skipJavaSdk == true
       uses: pulumi/pulumi-package-publisher@696a0fe98f86d86ada2a842d1859f3e8c40d6cd7 # v0.0.21
       with:
-        sdk: all,!java,!java
+        sdk: nodejs,!java
         version: ${{ inputs.version }}
     - name: Download Go SDK
       uses: ./.github/actions/download-sdk
